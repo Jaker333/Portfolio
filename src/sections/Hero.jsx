@@ -1,6 +1,7 @@
 import HeroText from "../components/HeroText";
 import Projects from "../sections/Projects";
 import { Particles } from "../components/Particles";
+import JakeMirror from "../assets/jakemirror1.gif";
 
 const Hero = () => {
     return (
@@ -29,7 +30,7 @@ const Hero = () => {
 
             {/* JAKE MIRROR */}
             <img
-                src="/assets/jakemirror1.gif"
+                src={JakeMirror}
                 alt="Jake Mirror"
                 className="absolute right-10 top-24 w-112.5 h-auto object-contain"
             />
