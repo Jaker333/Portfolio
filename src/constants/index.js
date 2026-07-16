@@ -13,11 +13,11 @@ export const myProjects = [
     liveDemo: "",
  
     // Media Pictures lol with hovering images that get cycled
-    image: "/assets/FobiaFights.png",
+    image: "https://jaker333.github.io/Portfolio/assets/FobiaFights.png",
     hoverImage: [
-      "/assets/FobiaFightsScreenshot1.png",
-      "/assets/FobiaFightsScreenshot2.png",
-      "/assets/FobiaFightsScreenshot3.png",
+      "https://jaker333.github.io/Portfolio/assets/FobiaFightsScreenshot1.png",
+      "https://jaker333.github.io/Portfolio/assets/FobiaFightsScreenshot2.png",
+      "https://jaker333.github.io/Portfolio/assets/FobiaFightsScreenshot3.png",
     ],
 
     // YouTube link for trailer
@@ -357,16 +357,16 @@ public class MultiplayerAudioController : MonoBehaviourPun
     designSnippets: [
       {
         title: "Phobia Handler",
-        image: "/assets/PhobiaHandlerDesign.png",
+        image: "",
       },
     ],
  
     // Tags shown on card and in Technologies section
     tags: [
-      { id: 1, name: "C#", path: "/assets/logos/csharp.svg", color: "bg-purple-600/30 text-purple-200 border-purple-500/30" },
-      { id: 2, name: "Unity", path: "/assets/logos/unity.svg", color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
-      { id: 3, name: "PUN 2", path: "/assets/logos/unity.svg", color: "bg-green-600/30 text-green-200 border-green-500/30" },
-      { id: 4, name: "Steam", path: "/assets/logos/steam.svg", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
+      { id: 1, name: "C#", path: "https://jaker333.github.io/Portfolio/assets/logos/csharp.svg", color: "bg-purple-600/30 text-purple-200 border-purple-500/30" },
+      { id: 2, name: "Unity", path: "https://jaker333.github.io/Portfolio/assets/logos/unity.svg", color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
+      { id: 3, name: "PUN 2", path: "https://jaker333.github.io/Portfolio/assets/logos/unity.svg", color: "bg-green-600/30 text-green-200 border-green-500/30" },
+      { id: 4, name: "Steam", path: "https://jaker333.github.io/Portfolio/assets/logos/steam.svg", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
     ],
   },
   // Drop Off Dragon
@@ -380,8 +380,8 @@ public class MultiplayerAudioController : MonoBehaviourPun
     href: "",
     github: "",
     liveDemo: "",
-    image: "/assets/projects/project.png",
-    hoverImage: "/assets/projects/project-hover.png", // optional, crossfades on hover
+    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
+    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
     youtubeUrl: "",
     overview: "Longer paragraph shown at the top of the detail modal.",
     details: {
@@ -393,13 +393,13 @@ public class MultiplayerAudioController : MonoBehaviourPun
       duration: "",
     },
     codeSnippets: [
-      { title: "Tab label", language: "javascript", code: `// paste code here` },
+      { title: "Tab label", language: "C#", code: `// paste code here` },
     ],
     designSnippets: [
-      { title: "Screen name", image: "/assets/projects/project-screen.png" },
+      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
     ],
     tags: [
-      { id: 1, name: "React", path: "/assets/logos/react.svg" },
+      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
     ],
   },
   // Other game
@@ -413,8 +413,8 @@ public class MultiplayerAudioController : MonoBehaviourPun
     href: "",
     github: "",
     liveDemo: "",
-    image: "/assets/projects/project.png",
-    hoverImage: "/assets/projects/project-hover.png", // optional, crossfades on hover
+    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
+    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
     youtubeUrl: "",
     overview: "Longer paragraph shown at the top of the detail modal.",
     details: {
@@ -426,13 +426,13 @@ public class MultiplayerAudioController : MonoBehaviourPun
       duration: "",
     },
     codeSnippets: [
-      { title: "Tab label", language: "javascript", code: `// paste code here` },
+      { title: "Tab label", language: "C#", code: `// paste code here` },
     ],
     designSnippets: [
-      { title: "Screen name", image: "/assets/projects/project-screen.png" },
+      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
     ],
     tags: [
-      { id: 1, name: "React", path: "/assets/logos/react.svg" },
+      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
     ],
   },
   // Other game
@@ -446,8 +446,8 @@ public class MultiplayerAudioController : MonoBehaviourPun
     href: "",
     github: "",
     liveDemo: "",
-    image: "/assets/projects/project.png",
-    hoverImage: "/assets/projects/project-hover.png", // optional, crossfades on hover
+    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
+    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
     youtubeUrl: "",
     overview: "Longer paragraph shown at the top of the detail modal.",
     details: {
@@ -459,13 +459,13 @@ public class MultiplayerAudioController : MonoBehaviourPun
       duration: "",
     },
     codeSnippets: [
-      { title: "Tab label", language: "javascript", code: `// paste code here` },
+      { title: "Tab label", language: "C#", code: `// paste code here` },
     ],
     designSnippets: [
-      { title: "Screen name", image: "/assets/projects/project-screen.png" },
+      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
     ],
     tags: [
-      { id: 1, name: "React", path: "/assets/logos/react.svg" },
+      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
     ],
   },
   // Other game
@@ -479,8 +479,8 @@ public class MultiplayerAudioController : MonoBehaviourPun
     href: "",
     github: "",
     liveDemo: "",
-    image: "/assets/projects/project.png",
-    hoverImage: "/assets/projects/project-hover.png", // optional, crossfades on hover
+    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
+    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
     youtubeUrl: "",
     overview: "Longer paragraph shown at the top of the detail modal.",
     details: {
@@ -492,13 +492,13 @@ public class MultiplayerAudioController : MonoBehaviourPun
       duration: "",
     },
     codeSnippets: [
-      { title: "Tab label", language: "javascript", code: `// paste code here` },
+      { title: "Tab label", language: "C#", code: `// paste code here` },
     ],
     designSnippets: [
-      { title: "Screen name", image: "/assets/projects/project-screen.png" },
+      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
     ],
     tags: [
-      { id: 1, name: "React", path: "/assets/logos/react.svg" },
+      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
     ],
   },
   // Other game
@@ -512,8 +512,8 @@ public class MultiplayerAudioController : MonoBehaviourPun
     href: "",
     github: "",
     liveDemo: "",
-    image: "/assets/projects/project.png",
-    hoverImage: "/assets/projects/project-hover.png", // optional, crossfades on hover
+    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
+    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
     youtubeUrl: "",
     overview: "Longer paragraph shown at the top of the detail modal.",
     details: {
@@ -525,13 +525,13 @@ public class MultiplayerAudioController : MonoBehaviourPun
       duration: "",
     },
     codeSnippets: [
-      { title: "Tab label", language: "javascript", code: `// paste code here` },
+      { title: "Tab label", language: "C#", code: `// paste code here` },
     ],
     designSnippets: [
-      { title: "Screen name", image: "/assets/projects/project-screen.png" },
+      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
     ],
     tags: [
-      { id: 1, name: "React", path: "/assets/logos/react.svg" },
+      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
     ],
   },
 ];
