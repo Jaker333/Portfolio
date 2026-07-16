@@ -75,7 +75,11 @@ const ProjectDetails = ({
           onClick={closeModal}
           className="absolute top-5 right-5 z-20 rounded-lg bg-black/60 p-2 transition hover:bg-red-500"
         >
-          <img src="assets/close.svg" className="h-5 w-5" alt="Close" />
+         <img
+            src={`${import.meta.env.BASE_URL}assets/close.svg`}
+            className="h-5 w-5"
+            alt="Close"
+          />
         </button>
 
         {/* Hero Image */}
