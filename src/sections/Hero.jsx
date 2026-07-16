@@ -29,7 +29,7 @@ const Hero = () => {
 
             {/* JAKE MIRROR */}
             <img
-                src={`https://Jaker333.github.io/Portfolio/assets/jakemirror1.gif`}
+                src={`https://jaker333.github.io/Portfolio/assets/jakemirror1.gif`}
                 alt="Jake Mirror"
                 className="absolute right-10 top-24 w-112.5 h-auto object-contain"
             />
