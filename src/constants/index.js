@@ -13,11 +13,11 @@ export const myProjects = [
     liveDemo: "",
  
     // Media Pictures lol with hovering images that get cycled
-    image: "https://jaker333.github.io/Portfolio/assets/FobiaFights.png",
+    image: `${import.meta.env.BASE_URL}assets/FobiaFights.png`,
     hoverImage: [
-      "https://jaker333.github.io/Portfolio/assets/FobiaFightsScreenshot1.png",
-      "https://jaker333.github.io/Portfolio/assets/FobiaFightsScreenshot2.png",
-      "https://jaker333.github.io/Portfolio/assets/FobiaFightsScreenshot3.png",
+      `${import.meta.env.BASE_URL}assets/FobiaFightsScreenshot1.png`,
+      `${import.meta.env.BASE_URL}assets/FobiaFightsScreenshot2.png`,
+      `${import.meta.env.BASE_URL}assets/FobiaFightsScreenshot3.png`,
     ],
 
     // YouTube link for trailer
@@ -363,10 +363,10 @@ public class MultiplayerAudioController : MonoBehaviourPun
  
     // Tags shown on card and in Technologies section
     tags: [
-      { id: 1, name: "C#", path: "https://jaker333.github.io/Portfolio/assets/logos/csharp.svg", color: "bg-purple-600/30 text-purple-200 border-purple-500/30" },
-      { id: 2, name: "Unity", path: "https://jaker333.github.io/Portfolio/assets/logos/unity.svg", color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
-      { id: 3, name: "PUN 2", path: "https://jaker333.github.io/Portfolio/assets/logos/unity.svg", color: "bg-green-600/30 text-green-200 border-green-500/30" },
-      { id: 4, name: "Steam", path: "https://jaker333.github.io/Portfolio/assets/logos/steam.svg", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
+      { id: 1, name: "C#",  path: `${import.meta.env.BASE_URL}assets/logos/csharp.svg`, color: "bg-purple-600/30 text-purple-200 border-purple-500/30" },
+      { id: 2, name: "Unity", path: `${import.meta.env.BASE_URL}assets/logos/unity.svg`, color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
+      { id: 3, name: "PUN 2", path: `${import.meta.env.BASE_URL}assets/logos/unity.svg`, color: "bg-green-600/30 text-green-200 border-green-500/30" },
+      { id: 4, name: "Steam", path: `${import.meta.env.BASE_URL}assets/logos/steam.svg`, color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
     ],
   },
   // Drop Off Dragon
