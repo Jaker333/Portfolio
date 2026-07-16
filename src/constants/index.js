@@ -540,6 +540,6 @@ export const mySocials = [
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/jakederoma/",
-    icon: "/assets/socials/linkedIn.svg",
+    icon: `${import.meta.env.BASE_URL}assets/socials/linkedIn.svg`,
   },
 ];
