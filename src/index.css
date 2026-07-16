@@ -1,0 +1,199 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", sans-serif;
+  --color-primary: #050913;
+  --color-midnight: #0b1220;
+  --color-navy: #162235;
+  --color-indigo: #24344d;
+  --color-storm: #334155;
+
+  --color-aqua: #38bdf8;
+  --color-mint: #22c55e;
+  --color-royal: #3b82f6;
+  --color-lavender: #60a5fa;
+  --color-fuchsia: #ca2f8c;
+  --color-orange: #cc6033;
+  --color-sand: #d6995c;
+  --color-coral: #ea4884;
+
+  --animate-orbit: orbit 50s linear infinite;
+
+  @keyframes orbit {
+    0% {
+      transform: rotate(calc(var(--angle) * 1deg))
+        translateY(calc(var(--radius) * 1px))
+        rotate(calc(var(--angle) * -1deg));
+    }
+    100% {
+      transform: rotate(calc(var(--angle) * 1deg + 360deg))
+        translateY(calc(var(--radius) * 1px))
+        rotate(calc((var(--angle) * -1deg) - 360deg));
+    }
+  }
+
+  --animate-marquee: marquee 50s linear infinite;
+  --animate-marquee-vertical: marquee-vertical 50s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    #02050d 0%,
+    #08111f 50%,
+    #0d1726 100%
+  );
+
+  color: #f8fafc;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.c-space {
+  @apply sm:px-10 px-5 lg:px-15;
+}
+
+.hover-animation {
+  @apply hover:-translate-y-1 duration-200;
+}
+
+.section-spacing {
+  @apply min-h-screen mt-20 md:mt-30;
+}
+
+.text-heading {
+  @apply font-extrabold text-3xl md:text-4xl text-white;
+}
+
+.headtext {
+  @apply mt-2 mb-2 text-xl font-bold text-white;
+}
+
+.subtext {
+  @apply text-slate-300 text-sm md:text-base text-pretty;
+}
+
+/* Navigation */
+
+.nav-ul {
+  @apply flex flex-col items-center gap-4 sm:flex-row md:gap-6 relative z-20;
+}
+
+.nav-li {
+  @apply text-slate-400 hover:text-white max-sm:w-full max-sm:rounded-md py-2 max-sm:px-5;
+}
+
+.nav-link {
+  @apply text-lg md:text-base hover:text-white transition-colors;
+}
+
+/* Buttons */
+
+.btn {
+  @apply relative px-1 py-4 text-sm text-center rounded-full font-extralight bg-primary border border-slate-600 hover:border-blue-400 transition-all w-[12rem] cursor-pointer overflow-hidden;
+}
+
+/* ================= ABOUT ================= */
+
+.grid-1 {
+  @apply row-span-2 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+
+.grid-2 {
+  @apply row-span-1 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+
+.grid-3 {
+  @apply row-span-1 md:col-span-3 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+
+.grid-4 {
+  @apply row-span-1 md:col-span-2 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+
+.grid-5 {
+  @apply row-span-1 md:col-span-4 h-[15rem] md:h-full relative overflow-hidden hover:-translate-y-1 duration-200;
+}
+
+.grid-default-color {
+  @apply p-6
+         rounded-2xl
+         bg-gradient-to-br
+         from-slate-800
+         via-slate-700
+         to-slate-900
+         border
+         border-slate-600
+         shadow-xl;
+}
+
+.grid-special-color {
+  @apply p-6
+         rounded-2xl
+         bg-gradient-to-br
+         from-blue-700
+         via-blue-600
+         to-slate-800
+         border
+         border-blue-500/40
+         shadow-xl;
+}
+
+.grid-black-color {
+  @apply p-6
+         rounded-2xl
+         bg-gradient-to-br
+         from-slate-950
+         via-slate-900
+         to-slate-800
+         border
+         border-slate-700
+         shadow-xl;
+}
+
+/* Contact */
+
+.field-label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+.field-input {
+  @apply w-full
+         min-h-10
+         rounded-md
+         px-3
+         py-2
+         text-sm
+         bg-slate-900
+         border
+         border-slate-700
+         placeholder-slate-500
+         mt-2
+         transition;
+}
+
+.field-input-focus {
+  @apply focus-visible:outline-none
+         focus-visible:ring-2
+         focus-visible:ring-blue-400;
+}
