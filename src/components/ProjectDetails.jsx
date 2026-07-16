@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { createPortal } from "react-dom";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const ProjectDetails = ({
   title,
@@ -257,9 +259,21 @@ const ProjectDetails = ({
                 {/* collapsible body */}
                 {codeOpen && (
                   <div className="overflow-x-auto">
-                    <pre className="p-6 text-sm leading-relaxed text-green-400 font-mono">
-                      <code>{codeSnippets[selectedCode]?.code}</code>
-                    </pre>
+                    <SyntaxHighlighter
+                      language={codeSnippets[selectedCode]?.language || "javascript"}
+                      style={vscDarkPlus}
+                      customStyle={{
+                        margin: 0,
+                        padding: "1.5rem",
+                        borderRadius: "0.75rem",
+                        background: "#0d1117",
+                        fontSize: "0.875rem",
+                        lineHeight: "1.6",
+                      }}
+                      showLineNumbers
+                    >
+                      {codeSnippets[selectedCode]?.code || ""}
+                    </SyntaxHighlighter>
                   </div>
                 )}
               </div>

@@ -172,8 +172,7 @@ public void JoinRoom()
       {
         title: "Multiplayer Audio Controller",
         language: "csharp",
-        code: `
-/// <summary>
+        code: `/// <summary>
 /// MultiplayerAudioController built on Photon PUN 2.
 /// 
 /// This component provides centralized control over multiple NamedAudioSources,
