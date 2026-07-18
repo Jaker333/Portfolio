@@ -25,7 +25,7 @@ export const myProjects = [
  
     // ProjectDetails — header
     overview:
-      "Dive into a chaotic, fear-fueled multiplayer brawl, where you’ll outwit, scare, and eliminate your friends using their deepest, darkest fears — all while they’re plotting to do the same to you! Designed to spark late night chaos between friends, this game truly shines when played with your entire friend group.",
+      "Dive into a chaotic, fear-fueled multiplayer brawl, where you’ll outwit, scare, and eliminate your friends using their deepest, darkest fears - all while they’re plotting to do the same to you! Designed to spark late night chaos between friends, this game truly shines when played with your entire friend group.",
  
     // ProjectDetails — details grid
     details: {
@@ -43,9 +43,9 @@ export const myProjects = [
         title: "Lobby Creation and Joining",
         language: "csharp",
         code: `/// <summary>
-/// Joins an existing Photon room or creates a new one depending on game settings.
+/// Joins a Pun2 room or creates a new one depending on game settings:
 /// Handles both private and public matchmaking logic, including room configuration,
-/// custom properties, and Steam-based naming (if available).
+/// custom properties, and accessing Steam API
 /// </summary>
 public void JoinRoom()
 {
@@ -53,7 +53,7 @@ public void JoinRoom()
     // returns early if any required unlocks are missing
     CheckPlayerLoadoutUnlocks(); 
 
-    Debug.Log("Connecting to Photon...");
+    Debug.Log("Connecting to Pun2...");
 
     RoomOptions roomOptions;
 
@@ -70,24 +70,24 @@ public void JoinRoom()
             while (!gameSettings.IsValidLobbyCode(code));
 
             roomNameToJoin = code;
-            Debug.Log($"Creating new private room: {roomNameToJoin}");
+            Debug.Log("Creating new private room: " + roomNameToJoin);
         }
         else
         {
-            Debug.Log($"Joining existing private room: {roomNameToJoin}");
+            Debug.Log("Joining existing private room: " + roomNameToJoin);
         }
 
-        // Persist room name in global game settings
+        // Persist room name in the global game settings so everyone can see
         gameSettings.roomName = roomNameToJoin;
 
-        // Configure private room settings
+        // Make private room settings
         roomOptions = new RoomOptions
         {
             MaxPlayers = 6,
             IsOpen = true,
             IsVisible = true,
 
-            // Custom metadata shared across all clients in the room
+            // Custom data shared across all clients in the room
             CustomRoomProperties = new Hashtable
             {
                 { "gameTime", gameSettings.gameTime },
@@ -98,7 +98,7 @@ public void JoinRoom()
                 { "region", PhotonNetwork.CloudRegion }
             },
 
-            // Properties exposed in the Photon lobby for filtering/searching
+            // Properties exposed in the lobby
             CustomRoomPropertiesForLobby = new string[]
             {
                 "gameTime",
@@ -117,14 +117,11 @@ public void JoinRoom()
         // Use Steam username as part of the room name if available
         if (Steamworks.SteamClient.IsValid)
         {
-            roomNameToJoin = SteamManager.Instance.PlayerSteamName
-                             + "'s "
-                             + RandomAdjective()
-                             + " Room: ";
+            roomNameToJoin = SteamManager.Instance.PlayerSteamName + "'s "+ RandomAdjective() + " Room: ";
         }
         else
         {
-            // Fallback: let Photon generate a random room name
+            // Fallback
             roomNameToJoin = "?";
         }
 
@@ -161,7 +158,7 @@ public void JoinRoom()
 
     // PHOTON ROOM CONNECTION
 
-    // Join existing room or create it if it doesn't exist
+    // Join existing room or create it if it doesn't exist with the proper roomOptions
     PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, roomOptions, null);
 
     // UI transition: hide name entry and show connecting screen
@@ -173,44 +170,42 @@ public void JoinRoom()
         title: "Multiplayer Audio Controller",
         language: "csharp",
         code: `/// <summary>
-/// MultiplayerAudioController built on Photon PUN 2.
-/// 
-/// This component provides centralized control over multiple NamedAudioSources,
-/// allowing synchronized playback across clients (self, others, or all).
+/// MultiplayerAudioController using Pun2:
+/// This component provides control over multiple NamedAudioSources,
+/// allowing synchronized playback across clients (self, others, or all)
 /// </summary>
 [RequireComponent(typeof(PhotonView))]
 public class MultiplayerAudioController : MonoBehaviourPun
 {
     /// <summary>
-    /// Serializable wrapper that binds a human readable name to an AudioSource.
+    /// Serializable wrapper that binds a name to an AudioSource
     /// </summary>
     [System.Serializable]
     public class NamedAudioSource
     {
-        [Tooltip("Unique identifier used to reference this AudioSource.")]
+        [Tooltip("Unique name for the AudioSource")]
         public string sourceName;
 
-        [Tooltip("Reference to the Unity AudioSource component.")]
+        [Tooltip("Reference to the AudioSource")]
         public AudioSource source;
 
-        [Tooltip("If true, the audio will restart from the beginning on each play call.")]
+        [Tooltip("If true, the audio will restart from the beginning on each play")]
         public bool alwaysRestart = true;
     }
 
     [Header("Audio Sources")]
-    [Tooltip("List of named AudioSources that can be controlled via RPC or local calls.")]
+    [Tooltip("List of named AudioSources that can be controlled through RPC or local calls")]
     [SerializeField] private List<NamedAudioSource> audioSources = new List<NamedAudioSource>();
 
     [Space(10)]
 
     /// <summary>
-    /// Lookup dictionary for fast runtime access to AudioSources by name.
+    /// Dictionary for fast runtime access to AudioSources by name
     /// </summary>
     private Dictionary<string, AudioSource> audioSourceDictionary = new Dictionary<string, AudioSource>();
 
     /// <summary>
-    /// Initializes the lookup dictionary for fast audio retrieval.
-    /// Ensures all named AudioSources are valid.
+    /// Initializes the dictionary for fast audio retrieval
     /// </summary>
     private void Awake()
     {
@@ -218,7 +213,7 @@ public class MultiplayerAudioController : MonoBehaviourPun
         {
             if (namedSource.source == null)
             {
-                Debug.LogWarning($"AudioSource is null for: {namedSource.sourceName}");
+                Debug.LogWarning("AudioSource is null for: " + namedSource.sourceName);
                 continue;
             }
 
@@ -232,28 +227,27 @@ public class MultiplayerAudioController : MonoBehaviourPun
     #region Play Methods
 
     /// <summary>
-    /// Plays an audio source on all connected clients.
+    /// Plays an audio source on all connected clients
     /// </summary>
     public void PlayForAll(string sourceName)
     {
         if (!ValidateSource(sourceName)) return;
+
         photonView.RPC("RPC_PlaySource", RpcTarget.All, sourceName);
     }
 
     /// <summary>
-    /// Plays an audio source only on the local client.
+    /// Plays an audio source only on the local client
     /// </summary>
     public void PlayForSelf(string sourceName)
     {
-        Debug.Log($"Attempting to play: {sourceName}");
         if (!ValidateSource(sourceName)) return;
 
-        Debug.Log($"Found source: {sourceName}");
         PlaySourceInternal(sourceName);
     }
 
     /// <summary>
-    /// Plays audio locally and optionally triggers playback on a target player.
+    /// Plays audio locally and optionally triggers on a target player
     /// </summary>
     public void PlayForSelfAndTarget(string sourceName, GameObject targetPlayer)
     {
@@ -270,24 +264,21 @@ public class MultiplayerAudioController : MonoBehaviourPun
             {
                 photonView.RPC("RPC_PlaySource", targetView.Owner, sourceName);
             }
-            else
-            {
-                Debug.LogWarning("Target player doesn't have a PhotonView component");
-            }
         }
     }
 
     /// <summary>
-    /// Plays an audio source on all clients except the local one.
+    /// Plays an audio source on all clients except the local one
     /// </summary>
     public void PlayForOthers(string sourceName)
     {
         if (!ValidateSource(sourceName)) return;
+
         photonView.RPC("RPC_PlaySource", RpcTarget.Others, sourceName);
     }
 
     /// <summary>
-    /// RPC call used to trigger playback on remote clients.
+    /// RPC call used to trigger play on remote clients
     /// </summary>
     [PunRPC]
     private void RPC_PlaySource(string sourceName)
@@ -296,8 +287,8 @@ public class MultiplayerAudioController : MonoBehaviourPun
     }
 
     /// <summary>
-    /// Core playback logic executed locally on all clients.
-    /// Handles restart logic and playback state validation.
+    /// Core play sound logic executed locally on all clients
+    /// Handles restart logic here
     /// </summary>
     private void PlaySourceInternal(string sourceName)
     {
@@ -305,9 +296,11 @@ public class MultiplayerAudioController : MonoBehaviourPun
         {
             if (!source.enabled)
                 source.enabled = true;
-
+            
+            // Find the AudioSource
             var namedSource = audioSources.Find(x => x.sourceName == sourceName);
 
+            // Play the sound with restart logic
             if (namedSource.alwaysRestart || !source.isPlaying)
             {
                 if (namedSource.alwaysRestart)
@@ -323,20 +316,19 @@ public class MultiplayerAudioController : MonoBehaviourPun
     #region Helper Methods
 
     /// <summary>
-    /// Validates that the requested audio source exists in the registry.
+    /// Validates the requested audio source
     /// </summary>
     private bool ValidateSource(string sourceName)
     {
         if (!audioSourceDictionary.ContainsKey(sourceName))
         {
-            Debug.LogWarning($"AudioSource not found: {sourceName}");
             return false;
         }
         return true;
     }
 
     /// <summary>
-    /// Returns whether a named audio source is currently playing.
+    /// Returns the status of an audio source
     /// </summary>
     public bool IsPlaying(string sourceName)
     {
@@ -355,8 +347,8 @@ public class MultiplayerAudioController : MonoBehaviourPun
     // ProjectDetails — design highlight images
     designSnippets: [
       {
-        title: "Phobia Handler",
-        image: "",
+        title: "PhobiaHandler",
+        image: `${import.meta.env.BASE_URL}assets/PhobiaHandler.png`,
       },
     ],
  
