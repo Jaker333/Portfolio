@@ -28,7 +28,7 @@ const Projects = () => {
   // Display every project when expanded.
   // Mobile: show first 2 projects.
   // Desktop/Tablet: show first 3 projects.
-  const displayedProjects = showAll ? myProject : myProjects.slice(0, isMobile ? 2 : 3);
+  const displayedProjects = showAll ? myProjects : myProjects.slice(0, isMobile ? 2 : 3);
 
   return (
     <section id="projects" className="pt-8 pb-16 scroll-mt-20">

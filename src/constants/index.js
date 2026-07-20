@@ -1,6 +1,53 @@
 export const myProjects = [
-  {
-    id: 1,
+    // Drop Off Dragon
+    {
+        id: 1,
+        title: "Drop Off Dragon",
+        description: "2D Mobile Action Platformer, Shipped Title with MassDiGI",
+        subDescription: [],
+        href: "",
+        github: "",
+        liveDemo: "",
+        image: `${import.meta.env.BASE_URL}assets/BannerIcon.png`,
+        hoverImage: [
+        `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot1.png`,
+        `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot2.png`,
+        `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot3.png`,
+        ],
+        youtubeUrl: "https://youtube.com/shorts/nVyNt1xzX6Q?si=I8IezHBfmcQ_8k_y",
+        overview: "Storm the castle, crash through obstacles, and break into vaults. Join Baby Dragon in our 2D Action platformer as you make your way down stealing piles of shiny gold!",
+        details: {
+        role: "Build Master, Programmer",
+        type: "2D Action Platformer",
+        platform: "IOS, Google Play",
+        language: "C#",
+        software: ["Unity", "PlasticSCM", "FMOD", "Fastlane", "Testflight"],
+        duration: "3 months",
+        },
+        codeSnippets: [
+        { title: "Tab label", language: "C#", code: `// paste code here` },
+        ],
+        designSnippets: [
+            {
+            title: "Build Pipeline",
+            image: `${import.meta.env.BASE_URL}assets/BuiltPipeline.png`,
+
+            title: "Level Design",
+            image: `${import.meta.env.BASE_URL}assets/DropOffDragonDesign.png`,
+            },
+        ],
+        tags: [
+        { id: 1, name: "IOS", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
+        { id: 2, name: "Google Play", color: "bg-green-600/30 text-green-200 border-green-500/30" },
+        { id: 3, name: "PlasticSCM", color: "bg-red-600/30 text-red-200 border-red-500/30" },
+        { id: 4, name: "C#", color: "bg-orange-600/30 text-orange-200 border-orange-500/30" },
+        { id: 5, name: "Unity", color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
+        ],
+    },
+
+    // Fobia Fights
+    {
+    id: 2,
     title: "Fobia Fights",
  
     // Descriptions
@@ -354,175 +401,11 @@ public class MultiplayerAudioController : MonoBehaviourPun
  
     // Tags shown on card and in Technologies section
     tags: [
-      { id: 1, name: "C#",  path: `${import.meta.env.BASE_URL}assets/logos/csharp.svg`, color: "bg-purple-600/30 text-purple-200 border-purple-500/30" },
-      { id: 2, name: "Unity", path: `${import.meta.env.BASE_URL}assets/logos/unity.svg`, color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
-      { id: 3, name: "PUN 2", path: `${import.meta.env.BASE_URL}assets/logos/unity.svg`, color: "bg-green-600/30 text-green-200 border-green-500/30" },
-      { id: 4, name: "Steam", path: `${import.meta.env.BASE_URL}assets/logos/steam.svg`, color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
-    ],
-  },
-  // Drop Off Dragon
-  {
-    id: 2,
-    title: "Project Name",
-    description: "One-line elevator pitch shown on the card.",
-    subDescription: [
-      "Key feature or highlight 1",
-    ],
-    href: "",
-    github: "",
-    liveDemo: "",
-    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
-    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
-    youtubeUrl: "",
-    overview: "Longer paragraph shown at the top of the detail modal.",
-    details: {
-      role: "",
-      type: "",
-      platform: "",
-      language: "",
-      software: [],
-      duration: "",
-    },
-    codeSnippets: [
-      { title: "Tab label", language: "C#", code: `// paste code here` },
-    ],
-    designSnippets: [
-      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
-    ],
-    tags: [
-      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
-    ],
-  },
-  // Other game
-  {
-    id: 3,
-    title: "Project Name",
-    description: "One-line elevator pitch shown on the card.",
-    subDescription: [
-      "Key feature or highlight 1",
-    ],
-    href: "",
-    github: "",
-    liveDemo: "",
-    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
-    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
-    youtubeUrl: "",
-    overview: "Longer paragraph shown at the top of the detail modal.",
-    details: {
-      role: "",
-      type: "",
-      platform: "",
-      language: "",
-      software: [],
-      duration: "",
-    },
-    codeSnippets: [
-      { title: "Tab label", language: "C#", code: `// paste code here` },
-    ],
-    designSnippets: [
-      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
-    ],
-    tags: [
-      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
-    ],
-  },
-  // Other game
-  {
-    id: 4,
-    title: "Project Name",
-    description: "One-line elevator pitch shown on the card.",
-    subDescription: [
-      "Key feature or highlight 1",
-    ],
-    href: "",
-    github: "",
-    liveDemo: "",
-    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
-    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
-    youtubeUrl: "",
-    overview: "Longer paragraph shown at the top of the detail modal.",
-    details: {
-      role: "",
-      type: "",
-      platform: "",
-      language: "",
-      software: [],
-      duration: "",
-    },
-    codeSnippets: [
-      { title: "Tab label", language: "C#", code: `// paste code here` },
-    ],
-    designSnippets: [
-      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
-    ],
-    tags: [
-      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
-    ],
-  },
-  // Other game
-  {
-    id: 5,
-    title: "Project Name",
-    description: "One-line elevator pitch shown on the card.",
-    subDescription: [
-      "Key feature or highlight 1",
-    ],
-    href: "",
-    github: "",
-    liveDemo: "",
-    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
-    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
-    youtubeUrl: "",
-    overview: "Longer paragraph shown at the top of the detail modal.",
-    details: {
-      role: "",
-      type: "",
-      platform: "",
-      language: "",
-      software: [],
-      duration: "",
-    },
-    codeSnippets: [
-      { title: "Tab label", language: "C#", code: `// paste code here` },
-    ],
-    designSnippets: [
-      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
-    ],
-    tags: [
-      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
-    ],
-  },
-  // Other game
-  {
-    id: 6,
-    title: "Project Name",
-    description: "One-line elevator pitch shown on the card.",
-    subDescription: [
-      "Key feature or highlight 1",
-    ],
-    href: "",
-    github: "",
-    liveDemo: "",
-    image: "https://jaker333.github.io/Portfolio/assets/projects/project.png",
-    hoverImage: "https://jaker333.github.io/Portfolio/assets/projects/project-hover.png", // optional, crossfades on hover
-    youtubeUrl: "",
-    overview: "Longer paragraph shown at the top of the detail modal.",
-    details: {
-      role: "",
-      type: "",
-      platform: "",
-      language: "",
-      software: [],
-      duration: "",
-    },
-    codeSnippets: [
-      { title: "Tab label", language: "C#", code: `// paste code here` },
-    ],
-    designSnippets: [
-      { title: "Screen name", image: "https://jaker333.github.io/Portfolio/assets/projects/project-screen.png" },
-    ],
-    tags: [
-      { id: 1, name: "React", path: "https://jaker333.github.io/Portfolio/assets/logos/react.svg" },
+        { id: 1, name: "Steam", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
+        { id: 2, name: "PUN 2", color: "bg-teal-600/30 text-teal-200 border-teal-500/30" },
+        { id: 3, name: "GitHub", color: "bg-red-600/30 text-red-200 border-red-500/30" },
+        { id: 4, name: "C#", color: "bg-orange-600/30 text-orange-200 border-orange-500/30" },
+        { id: 5, name: "Unity",  color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
     ],
   },
 ];
