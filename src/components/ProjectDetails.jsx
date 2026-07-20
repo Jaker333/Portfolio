@@ -11,6 +11,7 @@ const ProjectDetails = ({
   details,
   image,
   youtubeUrl,
+  mp4,
   codeSnippets = [],
   designSnippets = [],
   tags = [],
@@ -165,19 +166,31 @@ const ProjectDetails = ({
           )}
 
           {/* Video */}
-          {embedUrl && (
+          {(mp4 || embedUrl) && (
             <section>
               <h2 className="mb-6 text-3xl font-bold text-white">Video</h2>
 
-              <div className="aspect-video overflow-hidden rounded-xl border border-white/10">
-                <iframe
-                  className="h-full w-full"
-                  src={embedUrl}
-                  title={`${title} Video`}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+              <div className="aspect-video overflow-hidden rounded-xl border border-white/10 bg-black">
+                {mp4 ? (
+                  <video
+                    className="h-full w-full"
+                    controls
+                    preload="metadata"
+                    playsInline
+                  >
+                    <source src={mp4} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <iframe
+                    className="h-full w-full"
+                    src={embedUrl}
+                    title={`${title} Video`}
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                )}
               </div>
             </section>
           )}

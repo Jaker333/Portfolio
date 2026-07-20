@@ -13,46 +13,94 @@ const About = () => {
           {/* Main Card */}
           <div className="relative md:col-span-6 grid-black-color rounded-2xl overflow-hidden">
             <div className="relative z-10 p-6">
-              <p className="headtext">Hi, I'm Jake DeRoma</p>
+              <p className="headtext">Hello! I’m Jake DeRoma</p>
 
               <p className="subtext text-base md:text-lg leading-relaxed font-bold">
+                <br />
+
                 I specialize in{" "}
                 <span className="text-yellow-400">
-                  technical game design
+                  Technical Game Design
                 </span>{" "}
-                and{" "}
+                and enjoy rapidly developing{" "}
                 <span className="text-yellow-400">
-                  game engineering
-                </span>
-                <br />
-                with a focus on building video games and working in{" "}
-                <span className="text-yellow-400">
-                  collaborative teams
+                  memorable game mechanics
                 </span>{" "}
-                using <span className="text-yellow-400">Unity</span>.
-                <br />
-                My most recent projects include{" "}
+                and
+                {" "}
                 <span className="text-yellow-400">
-                  Drop Off Dragon
+                  systems
+                </span>{" "}
+
+                for players to enjoy.
+
+                <br />
+                <br />
+
+                I'm currently studying{" "}
+                <span className="text-yellow-400">
+                  Computer Science
+                </span>{" "}
+                with a minor in{" "}
+                <span className="text-yellow-400">
+                  Game Design
+                </span>{" "}
+                at Wentworth Institute of Technology, where I maintain a{" "}
+                <span className="text-yellow-400">
+                  4.0 GPA
                 </span>
-                , developed at{" "}
+                .
+
+                <br />
+                <br />
+
+                During{" "}
+                <span className="text-yellow-400">
+                  Summer 2026
+                </span>
+                , I interned at{" "}
                 <span className="text-yellow-400">
                   MassDiGI
                 </span>
-                ,
+                , where I helped ship{" "}
+                <span className="text-yellow-400">
+                  Drop Off Dragon
+                </span>{" "}
+                as a{" "}
+                <span className="text-yellow-400">
+                  Programmer
+                </span>{" "}
+                and{" "}
+                <span className="text-yellow-400">
+                  Build Master
+                </span>
+                .
+
                 <br />
-                as well as my solo project{" "}
+                <br />
+
+                In my free time, I solo developed{" "}
                 <span className="text-yellow-400">
                   Fobia Fights
                 </span>
-                ,
+                , a{" "}
+                <span className="text-yellow-400">
+                  Multiplayer PvP game
+                </span>{" "}
+                available on{" "}
+                <span className="text-yellow-400">
+                  Steam
+                </span>
+                .
+
                 <br />
-                which is set to release on{" "}
-                <span className="text-yellow-400">Steam</span> on August 7th,
-                2026!
                 <br />
-                <br />
-                (ADD MORE HERE)
+
+                My mission is to create games that bring players together through{" "}
+                <span className="text-yellow-400">
+                  fun, memorable game experiences
+                </span>
+                .
               </p>
             </div>
 

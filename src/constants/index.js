@@ -14,7 +14,8 @@ export const myProjects = [
         `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot2.png`,
         `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot3.png`,
         ],
-        youtubeUrl: "https://youtube.com/shorts/nVyNt1xzX6Q?si=I8IezHBfmcQ_8k_y",
+        youtubeUrl: "",
+        mp4: `${import.meta.env.BASE_URL}assets/trailerdropoffdragon.mp4`,
         overview: "Storm the castle, crash through obstacles, and break into vaults. Join Baby Dragon in our 2D Action platformer as you make your way down stealing piles of shiny gold!",
         details: {
         role: "Build Master, Programmer",
@@ -30,9 +31,14 @@ export const myProjects = [
         designSnippets: [
             {
             title: "Build Pipeline",
-            image: `${import.meta.env.BASE_URL}assets/BuiltPipeline.png`,
-
-            title: "Level Design",
+            image: `${import.meta.env.BASE_URL}assets/BuildPipeline.png`,
+            },
+            {
+            title: "Indoor & Outdoor Design",
+            image: `${import.meta.env.BASE_URL}assets/IndoorOutdoor.png`,
+            },
+            {
+            title: "Screen Design",
             image: `${import.meta.env.BASE_URL}assets/DropOffDragonDesign.png`,
             },
         ],
