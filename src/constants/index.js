@@ -8,7 +8,7 @@ export const myProjects = [
         href: "",
         github: "",
         liveDemo: "",
-        image: `${import.meta.env.BASE_URL}assets/BannerIconApple.png`,
+        image: `${import.meta.env.BASE_URL}assets/BannerIcon.png`,
         hoverImage: [
         `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot1.png`,
         `${import.meta.env.BASE_URL}assets/GoldScreenshot.png`,
