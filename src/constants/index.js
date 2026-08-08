@@ -475,62 +475,62 @@ private void UpdateMusicState(Scene scene)
             heading: "Create / Join Room",
             language: "csharp",
             code: `public void JoinRoom()
+{
+    // Returns nulls if the selected loadout is not fully unlocked
+    CheckIfLoadoutIsValid(); 
+    
+    // Declare room options
+    RoomOptions roomOptions;
+    
+    // Set room options
+    if (gameSettings.isPrivateGame)
     {
-        // Returns nulls if the selected loadout is not fully unlocked
-        CheckIfLoadoutIsValid(); 
-        
-        // Declare room options
-        RoomOptions roomOptions;
-        
-        // Set room options
-        if (gameSettings.isPrivateGame)
+        // For private games, generate a new room name only if we're not joining an existing one
+        if (string.IsNullOrEmpty(roomNameToJoin))
         {
-            // For private games, generate a new room name only if we're not joining an existing one
-            if (string.IsNullOrEmpty(roomNameToJoin))
+            // Generate a new lobby code until we find a valid one
+            do
             {
-                // Generate a new lobby code until we find a valid one
-                do
-                {
-                    code = gameSettings.GenerateLobbyCode();
-                } while (!gameSettings.IsValidLobbyCode(code));
-                roomNameToJoin = code;
-                Debug.Log("Creating new private room: " + roomNameToJoin);
-            }
-            else
-            {
-                Debug.Log("Joining existing private room: " + roomNameToJoin);
-            }
-
-            // Set name to lobby code for private games
-            gameSettings.roomName = roomNameToJoin;
-            
-            // Generates room properties and sets the room options for a private game
-            GenerateRoomProperties(true); // true for private game
+                code = gameSettings.GenerateLobbyCode();
+            } while (!gameSettings.IsValidLobbyCode(code));
+            roomNameToJoin = code;
+            Debug.Log("Creating new private room: " + roomNameToJoin);
         }
-        else  
+        else
         {
-            // For public games, use "?" to let Photon assign a random room
-            if (Steamworks.SteamClient.IsValid)
-            {
-                roomNameToJoin = SteamManager.Instance.PlayerSteamName + "'s " + RandomAdjective() + " Room: ";
-            } else
-                roomNameToJoin = "?"; // Failsafe
-            
-            // Set name to lobby code for public games
-            gameSettings.roomName = roomNameToJoin;
-            Debug.Log("Joining public room");
-            
-            // Generates room properties and sets the room options for a public game
-            GenerateRoomProperties(false); // false for public game
+            Debug.Log("Joining existing private room: " + roomNameToJoin);
         }
 
-        // Join or create the room with the specified name and options
-        PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, roomOptions, null);
+        // Set name to lobby code for private games
+        gameSettings.roomName = roomNameToJoin;
+        
+        // Generates room properties and sets the room options for a private game
+        GenerateRoomProperties(true); // true for private game
+    }
+    else  
+    {
+        // For public games, use "?" to let Photon assign a random room
+        if (Steamworks.SteamClient.IsValid)
+        {
+            roomNameToJoin = SteamManager.Instance.PlayerSteamName + "'s " + RandomAdjective() + " Room: ";
+        } else
+            roomNameToJoin = "?"; // Failsafe
+        
+        // Set name to lobby code for public games
+        gameSettings.roomName = roomNameToJoin;
+        Debug.Log("Joining public room");
+        
+        // Generates room properties and sets the room options for a public game
+        GenerateRoomProperties(false); // false for public game
+    }
 
-        // UI cleanup
-        nameUI.SetActive(false);
-        connectingUI.SetActive(true);
-    }`,
+    // Join or create the room with the specified name and options
+    PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, roomOptions, null);
+
+    // UI cleanup
+    nameUI.SetActive(false);
+    connectingUI.SetActive(true);
+}`,
           },
         ],
       },
