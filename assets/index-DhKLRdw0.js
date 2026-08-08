@@ -175,62 +175,62 @@ private void UpdateMusicState(Scene scene)
             This project was a **great** opportunity for me to learn about **networking** and **Steam integration** and, more importantly, **grow in my skills with C# to a more advanced level**.
             
             Some example code for the creation and joining of rooms:`},{type:`code`,heading:`Create / Join Room`,language:`csharp`,code:`public void JoinRoom()
+{
+    // Returns nulls if the selected loadout is not fully unlocked
+    CheckIfLoadoutIsValid(); 
+    
+    // Declare room options
+    RoomOptions roomOptions;
+    
+    // Set room options
+    if (gameSettings.isPrivateGame)
     {
-        // Returns nulls if the selected loadout is not fully unlocked
-        CheckIfLoadoutIsValid(); 
-        
-        // Declare room options
-        RoomOptions roomOptions;
-        
-        // Set room options
-        if (gameSettings.isPrivateGame)
+        // For private games, generate a new room name only if we're not joining an existing one
+        if (string.IsNullOrEmpty(roomNameToJoin))
         {
-            // For private games, generate a new room name only if we're not joining an existing one
-            if (string.IsNullOrEmpty(roomNameToJoin))
+            // Generate a new lobby code until we find a valid one
+            do
             {
-                // Generate a new lobby code until we find a valid one
-                do
-                {
-                    code = gameSettings.GenerateLobbyCode();
-                } while (!gameSettings.IsValidLobbyCode(code));
-                roomNameToJoin = code;
-                Debug.Log("Creating new private room: " + roomNameToJoin);
-            }
-            else
-            {
-                Debug.Log("Joining existing private room: " + roomNameToJoin);
-            }
-
-            // Set name to lobby code for private games
-            gameSettings.roomName = roomNameToJoin;
-            
-            // Generates room properties and sets the room options for a private game
-            GenerateRoomProperties(true); // true for private game
+                code = gameSettings.GenerateLobbyCode();
+            } while (!gameSettings.IsValidLobbyCode(code));
+            roomNameToJoin = code;
+            Debug.Log("Creating new private room: " + roomNameToJoin);
         }
-        else  
+        else
         {
-            // For public games, use "?" to let Photon assign a random room
-            if (Steamworks.SteamClient.IsValid)
-            {
-                roomNameToJoin = SteamManager.Instance.PlayerSteamName + "'s " + RandomAdjective() + " Room: ";
-            } else
-                roomNameToJoin = "?"; // Failsafe
-            
-            // Set name to lobby code for public games
-            gameSettings.roomName = roomNameToJoin;
-            Debug.Log("Joining public room");
-            
-            // Generates room properties and sets the room options for a public game
-            GenerateRoomProperties(false); // false for public game
+            Debug.Log("Joining existing private room: " + roomNameToJoin);
         }
 
-        // Join or create the room with the specified name and options
-        PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, roomOptions, null);
+        // Set name to lobby code for private games
+        gameSettings.roomName = roomNameToJoin;
+        
+        // Generates room properties and sets the room options for a private game
+        GenerateRoomProperties(true); // true for private game
+    }
+    else  
+    {
+        // For public games, use "?" to let Photon assign a random room
+        if (Steamworks.SteamClient.IsValid)
+        {
+            roomNameToJoin = SteamManager.Instance.PlayerSteamName + "'s " + RandomAdjective() + " Room: ";
+        } else
+            roomNameToJoin = "?"; // Failsafe
+        
+        // Set name to lobby code for public games
+        gameSettings.roomName = roomNameToJoin;
+        Debug.Log("Joining public room");
+        
+        // Generates room properties and sets the room options for a public game
+        GenerateRoomProperties(false); // false for public game
+    }
 
-        // UI cleanup
-        nameUI.SetActive(false);
-        connectingUI.SetActive(true);
-    }`}]},{title:`What I Learned`,blocks:[{type:`text`,heading:``,body:`Through solo development of Fobia Fights, I learned a lot about the importance of **planning** and **organization**.
+    // Join or create the room with the specified name and options
+    PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, roomOptions, null);
+
+    // UI cleanup
+    nameUI.SetActive(false);
+    connectingUI.SetActive(true);
+}`}]},{title:`What I Learned`,blocks:[{type:`text`,heading:``,body:`Through solo development of Fobia Fights, I learned a lot about the importance of **planning** and **organization**.
             
             I learned that it is important to have a clear vision for the game and to stick to it. I also learned that it is important to be flexible and to be willing to **change things if they are not working**. **Do not get too attached to your ideas in case they do not work for the game and benefit for the player**.
             
