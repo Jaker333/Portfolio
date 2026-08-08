@@ -51,12 +51,12 @@ const Hero = () => {
                 </div>
             </div>
 
-            {/* JAKE MIRROR */}
+            {/* JAKE MIRROR  */}
             <button
                 type="button"
                 onClick={handleMirrorClick}
                 aria-label="Play a fun animation"
-                className="hidden cursor-pointer border-none bg-transparent p-0 sm:block absolute z-20 pointer-events-auto right-4 top-20 w-32 sm:right-6 sm:w-48 md:right-8 md:w-72 lg:right-10 lg:top-24 lg:w-112.5"
+                className="hidden cursor-pointer border-none bg-transparent p-0 sm:block absolute z-10 pointer-events-auto right-4 top-20 w-32 sm:right-6 sm:w-48 md:right-8 md:w-72 lg:right-10 lg:top-24 lg:w-112.5"
             >
                 <img
                     key={showAltGif ? `alt-${playKey}` : "default"}
