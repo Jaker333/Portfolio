@@ -9,9 +9,10 @@ const About = () => {
       <div className="relative z-10">
         <h2 className="text-heading">About Me</h2>
 
+        {/* About me text */}
         <div className="grid grid-cols-1 md:grid-cols-6 gap-4 mt-8">
           {/* Main Card */}
-          <div className="relative md:col-span-6 grid-black-color rounded-2xl overflow-hidden">
+          <div className="relative md:col-span-4 grid-black-color rounded-2xl overflow-hidden">
             <div className="relative z-10 p-6">
               <p className="headtext">Hello! I’m Jake DeRoma</p>
 
@@ -48,6 +49,27 @@ const About = () => {
                 at Wentworth Institute of Technology, where I maintain a{" "}
                 <span className="text-yellow-400">
                   4.0 GPA
+                </span>
+                .
+
+                <br />
+                <br />
+
+                As a{" "}
+                <span className="text-yellow-400">
+                  programmer and designer
+                </span>
+                , I'm interested in the technical, creative, and impactful aspects of game design and have extensive experience{" "}
+                <span className="text-yellow-400">
+                  prototyping mechanics
+                </span>{" "}
+                in-engine or on paper,{" "}
+                <span className="text-yellow-400">
+                  designing memorable levels
+                </span>
+                , and{" "}
+                <span className="text-yellow-400">
+                  programming in Unity
                 </span>
                 .
 
@@ -91,7 +113,19 @@ const About = () => {
                 <span className="text-yellow-400">
                   Steam
                 </span>
-                .
+                . <br /><br />When I am not developing games, I play{" "}
+                <span className="text-yellow-400">
+                  card games
+                </span>
+                , go{" "}
+                <span className="text-yellow-400">
+                  bowling
+                </span>
+                , research games, or explore{" "}
+                <span className="text-yellow-400">
+                  Boston
+                </span>
+                !
 
                 <br />
                 <br />
@@ -107,7 +141,16 @@ const About = () => {
             <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-blue-500/30 to-transparent pointer-events-none" />
           </div>
 
-          {/* Contact Card */}
+          {/* Photo of me that sits to the right of the Main Card, on screens stacks below it on mobile.*/}
+          <div className="md:col-span-2">
+            <img
+              src={`${import.meta.env.BASE_URL}assets/AboutMe.jpg`}
+              alt="Jake DeRoma"
+              className="h-full w-full rounded-2xl border border-white/10 object-cover"
+            />
+          </div>
+
+          {/* Contact Card spans the full width under both of the above */}
           <div className="md:col-span-6 flex justify-center">
             <div className="grid-black-color w-full max-w-sm rounded-2xl px-6 py-5">
               <div className="flex flex-col items-center gap-3">

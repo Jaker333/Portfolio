@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
-import ProjectDetails from "./ProjectDetails";
+import { useNavigate } from "react-router-dom";
 
 const Project = ({
+  slug,
   title,
   description,
-  href,
   image,
   hoverImage,
   tags,
   setPreview,
-  overview,
-  details,
-  youtubeUrl,
-  codeSnippets,
-  designSnippets,
-  github,
-  liveDemo,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState(false);
   const [hoverIndex, setHoverIndex] = useState(0);
 
@@ -40,16 +33,9 @@ const Project = ({
   return (
     <>
       <div
-        onClick={() => setIsOpen(true)}
-        onMouseEnter={() => {
-          setPreview?.({ image, title });
-          setIsHovered(true);
-        }}
-        onMouseLeave={() => {
-          setPreview?.(null);
-          setIsHovered(false);
-          setHoverIndex(0);
-        }}
+        onClick={() => navigate(`/projects/${slug}`)}
+        onMouseEnter={() => { setPreview?.({ image, title }); setIsHovered(true); }}
+        onMouseLeave={() => { setPreview?.(null); setIsHovered(false); setHoverIndex(0); }}
         className="group w-full overflow-hidden rounded-xl border border-white/10 bg-neutral-900 flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/10"
       >
         <div className="relative aspect-[16/10] overflow-hidden bg-neutral-800">
@@ -69,10 +55,7 @@ const Project = ({
             src={image}
             alt={title}
             className={`absolute inset-0 h-full w-full object-contain transition-all duration-300 ${
-              isHovered && hoverImages.length
-                ? "opacity-0 scale-105"
-                : "opacity-100 group-hover:scale-105"
-            }`}
+              isHovered && hoverImages.length ? "opacity-0 scale-105" : "opacity-100 group-hover:scale-105" }`}
           />
 
           {/* Hover slideshow */}
@@ -84,10 +67,7 @@ const Project = ({
                 alt=""
                 aria-hidden="true"
                 className={`absolute inset-0 h-full w-full object-cover scale-125 blur-2xl brightness-50 transition-opacity duration-300 ${
-                  isHovered && hoverIndex === index
-                    ? "opacity-100"
-                    : "opacity-0"
-                }`}
+                  isHovered && hoverIndex === index ? "opacity-100" : "opacity-0" }`}
               />
 
               {/* Foreground */}
@@ -95,10 +75,7 @@ const Project = ({
                 src={img}
                 alt={`${title} ${index + 1}`}
                 className={`absolute inset-0 h-full w-full object-contain transition-opacity duration-300 ${
-                  isHovered && hoverIndex === index
-                    ? "opacity-100"
-                    : "opacity-0"
-                }`}
+                  isHovered && hoverIndex === index ? "opacity-100" : "opacity-0" }`}
               />
             </React.Fragment>
           ))}
@@ -127,24 +104,6 @@ const Project = ({
           </p>
         </div>
       </div>
-
-      {isOpen && (
-        <ProjectDetails
-          title={title}
-          overview={overview}
-          description={description}
-          image={image}
-          tags={tags}
-          href={href}
-          details={details}
-          youtubeUrl={youtubeUrl}
-          codeSnippets={codeSnippets}
-          designSnippets={designSnippets}
-          github={github}
-          liveDemo={liveDemo}
-          closeModal={() => setIsOpen(false)}
-        />
-      )}
     </>
   );
 };

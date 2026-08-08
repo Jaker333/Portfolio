@@ -3,10 +3,10 @@ import { mySocials } from "../constants";
 const Footer = () => {
   return (
     // Footer 
-    <footer className="flex flex-wrap items-center justify-between gap-5 pt-0 pb-3 px-5 md:px-10 text-sm text-neutral-400">
+    <footer className="flex flex-col items-center gap-4 pt-0 pb-4 px-5 text-center text-sm text-neutral-400 sm:flex-row sm:flex-wrap sm:justify-between sm:gap-5 sm:pb-3 sm:text-left md:px-10">
       <div className="w-full h-px mb-2 bg-linear-to-r from-transparent via-neutral-700 to-transparent" />
 
-      {/* Text that dont do anything */}
+      {/* Text that dont do anything lol */}
       <div className="flex gap-2">
         <p>Terms & Conditions</p>
         <p>|</p>

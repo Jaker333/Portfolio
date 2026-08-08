@@ -1,7 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Project from "../components/Project";
 import { myProjects } from "../constants";
+
+// PC project count displayed initially
+const INITIAL_PROJECT_COUNT = 3;
 
 const Projects = () => {
   // Stores the currently selected project preview.
@@ -10,33 +13,16 @@ const Projects = () => {
   // Controls whether all projects are shown or only the initial set.
   const [showAll, setShowAll] = useState(false);
 
-  // Detect if the screen is mobile-sized.
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== "undefined" ? window.innerWidth < 640 : false
-  );
-
-  // Listen for window resizing so the number of displayed
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 640);
-
-    window.addEventListener("resize", handleResize);
-
-    // Clean up the event listener when the component unmounts.
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  // Display every project when expanded.
-  // Mobile: show first 2 projects.
-  // Desktop/Tablet: show first 3 projects.
-  const displayedProjects = showAll ? myProjects : myProjects.slice(0, isMobile ? 2 : 3);
+  // Shows displayed projects
+  const displayedProjects = showAll ? myProjects : myProjects.slice(0, INITIAL_PROJECT_COUNT);
 
   return (
     <section id="projects" className="pt-8 pb-16 scroll-mt-20">
       {/* Centers the content and limits the maximum width */}
       <div className="mx-auto w-full max-w-[1800px] px-4">
 
-        {/* Responsive project grid */}
-        <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
+        {/* Responsive project grid - single column on mobile, 3 on tablet, 3 on desktop. */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 xl:grid-cols-3">
           {displayedProjects.map((project) => (
             <Project
               key={project.id}
@@ -46,8 +32,8 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Only show the toggle button if there are more than the default number of desktop projects available. */}
-        {myProjects.length > 3 && (
+        {/* Only show the toggle button if there are more than the default number of projects available. */}
+        {myProjects.length > INITIAL_PROJECT_COUNT && (
           <div className="flex justify-center mt-10">
             <motion.button
               onClick={() => setShowAll(!showAll)}

@@ -50,6 +50,6 @@ const CopyEmailButton = () => {
       </AnimatePresence>
     </motion.button>
   );
-}; // trust me bro it just works
+}; // youtube
 
 export default CopyEmailButton;

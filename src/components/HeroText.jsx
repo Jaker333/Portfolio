@@ -77,7 +77,7 @@ const HeroText = () => {
             animate="visible"
             transition={{ delay: 1.2 }}
           >
-            Building
+            I make
           </motion.p>
           <motion.div
             variants={variants}

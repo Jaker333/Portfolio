@@ -1,852 +1,347 @@
 export const myProjects = [
-    // Drop Off Dragon
-    {
-        id: 1,
-        title: "Drop Off Dragon",
-        description: "2D Mobile Action Platformer, Shipped Title with MassDiGI",
-        subDescription: [],
-        href: "",
-        github: "",
-        liveDemo: "",
-        image: `${import.meta.env.BASE_URL}assets/BannerIcon.png`,
-        hoverImage: [
-        `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot1.png`,
-        `${import.meta.env.BASE_URL}assets/GoldScreenshot.png`,
-        `${import.meta.env.BASE_URL}assets/SpikeScreenshot.png`,
-        ],
-        youtubeUrl: "",
-        mp4: `${import.meta.env.BASE_URL}assets/trailerdropoffdragon.mp4`,
-        overview: "Storm the castle, crash through obstacles, and break into vaults. Join Baby Dragon in our 2D Action platformer as you make your way down stealing piles of shiny gold!",
-        details: {
-        role: "Build Master, Programmer",
-        type: "2D Action Platformer",
-        platform: "IOS, Google Play",
-        language: "C#",
-        software: ["Unity", "PlasticSCM", "FMOD", "Fastlane", "Testflight"],
-        duration: "3 months",
-        },
-        codeSnippets: [
-        { title: "FMOD Manager", language: "C#", code: `using UnityEngine;
-using FMODUnity;
-using UnityEngine.SceneManagement;
-using System.Collections.Generic;
-using System.Collections;
+  // Drop Off Dragon
+  {
+      id: 1,
+      slug: "drop-off-dragon",
+      title: "Drop Off Dragon",
+      titleColor: "#05F2DB", // color of the bolded, centered project name on the details page
+      description: "2D Mobile Action Platformer, Shipped Title with MassDiGI games. Summer 2026.",
+      subDescription: [],
+      href: "",
+      github: "",
+      liveDemo: "",
+      image: `${import.meta.env.BASE_URL}assets/BannerIcon.png`,
+      hoverImage: [
+      `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot1.png`,
+      `${import.meta.env.BASE_URL}assets/GoldScreenshot.png`,
+      `${import.meta.env.BASE_URL}assets/SpikeScreenshot.png`,
+      ],
+      youtubeUrl: "",
+      mp4: `${import.meta.env.BASE_URL}assets/trailerdropoffdragon.mp4`,
+      
+      overview: `
+      **Drop Off Dragon** is a 2D Action Platformer made for all ages released on **iOS** and **Android** platforms. Storm the castle, crash through obstacles, and break into vaults to steal gold to prove to Mama Dragon that you can be as strong as her!
 
-// @author Jake DeRoma
-public class FMODManager : MonoBehaviour
-{   
-    #region Variables
-    
-    // Singleton
-    public static FMODManager Instance; // singleton
-    public enum MusicType {Inside, Outside, Menu}
-    
-    // Dictionary which stores loading music on SceneLoaded by Scene name
-    private readonly Dictionary<string, MusicType> musicScenes = new Dictionary<string, MusicType>()
-        {
-            {"Level1", MusicType.Outside}, {"Level2", MusicType.Outside}, {"Level3", MusicType.Inside},
-            {"Level4", MusicType.Inside}, {"Level5", MusicType.Outside}, {"Level6", MusicType.Inside},
-            {"Level7", MusicType.Outside}, {"Level8", MusicType.Outside}, {"Level9", MusicType.Inside},
-            {"Level10", MusicType.Inside}, {"TitleScreen", MusicType.Menu}, {"LevelSelect", MusicType.Menu}
-        };
-    [HideInInspector] public MusicType CurrentlyPlayingMusic = MusicType.Outside;
-    private float m_blipCooldown = .2f;
-    private float m_lastBlipTime;
-    private EventReference m_lastPlayedOneshot;
+      As part of **MassDiGI's 2026 Summer Innovation Program**, I worked as a **designer**, **programmer**, and **build master** on a team of **8 talented developers**. We were tasked by our director to design a concept and **publish a title in 3 months**. This process made me learn how to **collaborate** in a team in a professional setting by using **Miro**, **Kanban**, and **Scrum**.
 
-    [Header("Oneshots")]
-    [Header("Game")]
-    public EventReference m_jumpSoundEvent;
-    public EventReference m_landSoundEvent;
-    public EventReference m_groundPoundLandSoundEvent;
-    public EventReference m_pogoSoundEvent;
-    public EventReference m_breakableTileEvent;  
-    public EventReference m_skeletonCollectEvent;
-    public EventReference m_springEvent;
-    public EventReference m_bannerUnfurlEvent;
-    public EventReference m_gargoyleRespawnEvent;
-    public EventReference m_slamGateLandEvent;
-    public EventReference m_slamGateUpEvent;
-    public EventReference m_playerDieEvent;
+      We started this project off by **prototyping** the idea using similar comparable games. We implemented a dirty build which showcased the core mechanic and pitched our idea to the director. Once it was approved, we moved into production of **Drop Off Dragon** which is now available on **iOS** and **Google Play**!
+      
+      `,
 
-    [Header("UI")] 
-    public EventReference m_uiButtonEvent;
-    public EventReference m_uiSpecialButtonLevelSelectEvent;
-    public EventReference m_uiSpecialButtonTitleEvent;
-    public EventReference m_levelCompleteEvent;
-    public EventReference m_skeletonUIEvent; 
-    public EventReference m_bannerUIEvent;
+      details: {
+      role: "Build Master, Programmer, Technical Designer",
+      type: "2D Action Platformer",
+      platform: "Mobile Game (iOS, Google Play)",
+      language: "C#",
+      software: ["Unity", "PlasticSCM", "FMOD", "Fastlane", "Testflight", "App Store Connect", "Google Play Console"],
+      duration: "3 months, Summer 2026",
+      },
 
-    [Header("Loops")]
-    public EventReference m_groundPoundFireSoundEvent;
-    public FMOD.Studio.EventInstance m_groundPoundFireSoundEventInstance;
-    public EventReference m_slamGateChainEvent;
-    public FMOD.Studio.EventInstance m_slamGateChainEventInstance;
-    private bool m_isGroundPoundFireSoundPlaying = false;
-    private bool m_isSlamGateChainPlaying = false;
+      // Shown right under the About section, before the custom sections below
+      imageLinks: [
+      {
+          src: `${import.meta.env.BASE_URL}assets/iOSBadge.png`,
+          href: "https://apps.apple.com/us/app/drop-off-dragon/id6778522561", // App Store link
+          caption: "",
+          compact: true,
+      },
+      {
+          src: `${import.meta.env.BASE_URL}assets/GooglePlayBadge.png`,
+          href: "https://play.google.com/store/apps/details?id=com.MassDiGI.ChonkDragon&hl=en_US", // Google Play link
+          caption: "",
+          compact: true,
+      },
+      ],
 
-    [Header("Music")]
-    public EventReference m_gameMusicEvent;
-    public FMOD.Studio.EventInstance m_gameMusicEventInstance;
-    public EventReference m_menuMusicEvent;
-    public FMOD.Studio.EventInstance m_menuMusicEventInstance;
-    [SerializeField] private float m_musicLerpSpeed = 0.01f; // crossfade speed
-    private float m_currentMusicParameter = 0; // 0 = Outside, 1 = Inside
-    private int m_pitch = 0; // pogo pitch
-    private float m_pitchTimer = 0f;
+      sections: [
+      {
+          title: "Milestones",
+          blocks: [
+          {
+              type: "text",
+              heading: "Dirty Build",
+              body: `During our Dirty Build Phase of development, my team and I began focusing on what the core mechanic and plus one mechanic we wanted to add. Taking inspiration from games like **King of Thieves** and **Super Mario Run**, we loved the idea for a 2D Action platformer.
+              
+              Our core mechanic ended up being **"Auto Runner"** and our plus one was **"Ground Pound"** using only tap inputs.
+              
+              For this milestone, we implemented:
+              • **2D Auto-runner physics, wall jumping, ground pound**
+              • **Hazard Pogoing with ground pound**
+              • **Recieving Tap input**
+              • **Tap to start (dynamic pausing)**
+              • **Win Condition**
+              `,
+          },
+          {
+            type: "video",
+            src: `${import.meta.env.BASE_URL}assets/DirtyBuildGIF.gif`,
+            caption: "Early footage of our Dirty Build concept",
+          },
+          {
+            type: "text",
+            heading: "Vertical Slice",
+            body: `During our Vertical Slice Phase of development, I worked closely with my good friend, **Rose Briggs**, and we **partner programmed** the **PlayerController.cs** script. Through partner programming, we were able to work effectively and quickly. By the end of the phase, we finalized **player movement**.
+            
+              For this milestone, we implemented:
+              • **Player State Machine**
+              • **Gargoyle Enemy Design**
+              • **Level & Tilemap System**
+              • **Breakable Tiles**
+              • **Screen transitioning**
+              • **Camera shake**`,
+          },
+          {
+            type: "video",
+            src: `${import.meta.env.BASE_URL}assets/VerticalSliceGIF.gif`,
+            caption: "Early footage of our Vertical Slice",
+          },
+          {
+              type: "text",
+              heading: "Alpha",
+              body: `Here our some of the things I worked on during Alpha:
+              
+              • **Save Manager** - Handles all save data and is compatible for iOS and Android.
+              • **FMOD Manager** - Started framework for playing oneshots, stingers, and loops.
+              • **Feedbacks Manager** - Using Unity Asset "FEEL," I made an easy manager to juice our mechanics with **haptics** compatibility. 
+              • **Level Mechanics** - Feature freezed our mechanics: Acid, Slam Gates, Gargoyles, Spikes, etc
+              • **Player Animation** - Worked with **Rose Briggs** on implementing the **Player Animation** that **Zoe Yang** animated.
+              • **Paper prototyped levels** - Using note cards, I sketched levels and then brought those approved ideas into engine.
+              `,
+          },
+          {
+            type: "images",
+            items: [
+              { src: `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot1.png`, caption: "Slam Gates, Popping Gargoyles" },
+              { src: `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot2.PNG`, caption: "Ground pounding spikes pogo" },
+              { src: `${import.meta.env.BASE_URL}assets/DropOffDragonScreenshot3.PNG`, caption: "Gargoyles above Acid" },
+            ],
+          },
+          {
+              type: "text",
+              heading: "Beta",
+              body: `During the Beta Phase of development, I spent the most time working on **level design** and polishing mechanics:
+              
+              For this milestone, we implemented:
+              • **Bug Fixes**
+              • **Unique Backgrounds**
+              • **Miscellaneous art assets**
+              • **Our 10 levels refined**
+              `,
+          },
+          {
+            type: "images",
+            items: [
+              { src: `${import.meta.env.BASE_URL}assets/ChapelScreenshot.png`, caption: "Designed the Chapel Level" },
+              { src: `${import.meta.env.BASE_URL}assets/TreasureScreenshot.png`, caption: "Implemented the Win Gold Pile" },
+              { src: `${import.meta.env.BASE_URL}assets/JumpScreenshot.png`, caption: "Brewery Screen" },
+            ],
+          },
+          {
+              type: "text",
+              heading: "Release",
+              body: "During the Beta Phase of development, I primarily focued on my duties as **Build Master**. **App Store Connect** and **Google Play Console** took a lot of time to set up and get approved.",
+          },
+          {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/BabyDragonBanner.png`,
+            caption: "",
+          },
+          {
+              type: "text",
+              heading: "",
+              body: `Besides getting the App pages ready, I polished and had others playtest the levels to try and level the skill floor and ceiling to be as enjoyable as possible for all ages.
+              
+              It was such an amazing experience releasing Drop Off Dragon with my team (friends):
+              **Zoe Yang** (drew Jake Mirror on home page), **Bashar Alqassar**, **Cooper Bulmash**, **Claire Mayfield**, **Rose Briggs**, **James Prendergast**, and **Marilee Rodriguez**! 
+              `,
+          },
+          ],
+      },
+      {
+          title: "My Role in Design",
+          blocks: [
+          {
+              type: "text",
+              heading: "FMOD",
+              body: `Working on the **FMOD integration**, I got to work closely with our Audio Designer, **Claire Mayfield**, who gave me a different perspective on when sounds should play. 
+              
+              I coded a system that allows for **cross-fading music transitions** when entering **indoor** and **outdoor** parts of the levels. Claire worked on making the instruments fit indoor and outdoor aesthetics even using **live recorded violin**.
+              
+              We also worked together on **pitch randomization** and **low-pass filters** that made the game sound more pleasing.
 
-    [BankRef]
-    public string m_masterBank; // Master Bank Reference
-    #endregion
-
-    #region Unity Methods
-    
-    /// <summary>
-    /// Awake
-    /// </summary>
-    void Awake() {
-        // Setting up singleton design
-        if(Instance) {
-            Debug.LogWarning($"More than 1 FMODManager in the scene, deleting {transform.name}");
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
-
-    /// <summary>
-    /// OnEnable
-    /// </summary>
-    void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    /// <summary>
-    /// Start
-    /// </summary>
-    void Start()
-    {
-        m_gameMusicEventInstance = RuntimeManager.CreateInstance(m_gameMusicEvent);
-        m_menuMusicEventInstance = RuntimeManager.CreateInstance(m_menuMusicEvent);
-
-        // Play active scene loading music
-        UpdateMusicState(SceneManager.GetActiveScene());
-    }
-
-    /// <summary>
-    /// Update
-    /// </summary>
-    void Update()
-    {  
-        // Handles Pogo pitch with timer
-        HandlePitch();
-
-        // Null check
-        if (Camera.main == null)
-        {
-            return;
-        }
-
-        // Indoor/Outdoor parameter
-        m_gameMusicEventInstance.setParameterByName("Gameplay_Location", m_currentMusicParameter, true);
-        
-        // Set 3D values to play at Camera where Listener is located
-        m_menuMusicEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(Camera.main.transform));
-        m_gameMusicEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(Camera.main.transform));
-
-        // Handle if Loops are playing
-        if (m_isGroundPoundFireSoundPlaying)
-        {
-            m_groundPoundFireSoundEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(Camera.main.transform));
-        }
-
-        if (m_isSlamGateChainPlaying)
-        {
-            m_slamGateChainEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(Camera.main.transform));
-        }
-    }
-
-    /// <summary>
-    /// OnDestroy
-    /// Releases all sound for optimization
-    /// </summary>
-    private void OnDestroy()
+              **(Here is my method that handles cross-fading music transitions on changing music states)**
+              `,
+          },
+          {
+            type: "code",
+            heading: "Update Music State Method",
+            language: "",
+            code: `/// <summary>
+/// Updates the music state based on the current scene. 
+/// If the scene is in the gameplayScenes list, it starts playing the music event instance
+/// If not, it stops the music event instance
+/// 
+/// Is called when a new scene is loaded, and checks if the scene is in the gameplayScenes list.
+/// If it is, it starts playing the music event instance and sets the music parameter based
+/// </summary>
+/// <param name="scene"></param>
+private void UpdateMusicState(Scene scene)
+{
+    // Stop invalid scenes by fading out
+    if (!musicScenes.TryGetValue(scene.name, out MusicType musicType))
     {
         if (m_gameMusicEventInstance.isValid())
-        {
-            m_gameMusicEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            m_gameMusicEventInstance.release();
-        }
+            m_gameMusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         if (m_menuMusicEventInstance.isValid())
-        {
-            m_menuMusicEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            m_menuMusicEventInstance.release();
-        }
+            m_menuMusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
-        if (m_groundPoundFireSoundEventInstance.isValid())
-        {
-            m_groundPoundFireSoundEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            m_groundPoundFireSoundEventInstance.release();
-        }
-
-        if (m_slamGateChainEventInstance.isValid())
-        {
-            m_slamGateChainEventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            m_slamGateChainEventInstance.release();
-        }
-
-        if (Instance == this)
-            Instance = null;
+        return;
     }
 
-    /// <summary>
-    /// OnSceneLoaded gets player position 
-    /// </summary>
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        UpdateMusicState(scene); // Crossfade music on load
-    }
-
-    /// <summary>
-    /// Resumes all sound on application unpause
-    /// </summary>
-    /// <param name="hasPause"></param>
-    private void OnApplicationPause(bool hasPause)
-    {
-        if (!hasPause)
-        {
-            RuntimeManager.LoadBank(m_masterBank);
-
-            // RuntimeManager.CoreSystem.setDSPBufferSize(2048, 4);
-            
-            RuntimeManager.CoreSystem.mixerResume();
-        
-            UpdateMusicState(SceneManager.GetActiveScene());
-        }
-        else
-        {
-            RuntimeManager.CoreSystem.mixerSuspend();
-        }
-    }
-    #endregion
-
-    #region Music/SFX Methods
-
-    /// <summary>
-    /// Updates the music state based on the current scene. 
-    /// If the scene is in the gameplayScenes list, it starts playing the music event instance
-    /// If not, it stops the music event instance
-    /// 
-    /// Is called when a new scene is loaded, and checks if the scene is in the gameplayScenes list.
-    /// If it is, it starts playing the music event instance and sets the music parameter based
-    /// </summary>
-    /// <param name="scene"></param>
-    private void UpdateMusicState(Scene scene)
-    {
-        // Stop invalid scenes by fading out
-        if (!musicScenes.TryGetValue(scene.name, out MusicType musicType))
-        {
+    // If music has valid scene name with loading music
+    switch (musicType)
+    {   
+        // If in a menu scene,
+        case MusicType.Menu:
+            // Stop game music
             if (m_gameMusicEventInstance.isValid())
                 m_gameMusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
+            // Starts menu music
+            if (m_menuMusicEventInstance.isValid())
+            {
+                FMOD.Studio.PLAYBACK_STATE state;
+                m_menuMusicEventInstance.getPlaybackState(out state);
+
+                if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+                    m_menuMusicEventInstance.start();
+            }
+
+            // Update music state
+            CurrentlyPlayingMusic = MusicType.Menu;
+            break;
+
+        // If inside or outside,
+        case MusicType.Inside:
+        case MusicType.Outside:
+
+            // Stop menu music
             if (m_menuMusicEventInstance.isValid())
                 m_menuMusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
-            return;
-        }
-
-        // If music has valid scene name with loading music
-        switch (musicType)
-        {   
-            // If in a menu scene,
-            case MusicType.Menu:
-                // Stop game music
-                if (m_gameMusicEventInstance.isValid())
-                    m_gameMusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
-                // Starts menu music
-                if (m_menuMusicEventInstance.isValid())
-                {
-                    FMOD.Studio.PLAYBACK_STATE state;
-                    m_menuMusicEventInstance.getPlaybackState(out state);
-
-                    if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-                        m_menuMusicEventInstance.start();
-                }
-
-                // Update music state
-                CurrentlyPlayingMusic = MusicType.Menu;
-                break;
-
-            // If inside or outside,
-            case MusicType.Inside:
-            case MusicType.Outside:
-
-                // Stop menu music
-                if (m_menuMusicEventInstance.isValid())
-                    m_menuMusicEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
-                // Start Inside or Outdoor music (parameter is handled in Update)
-                if (m_gameMusicEventInstance.isValid() && Camera.main != null)
-                {
-                    FMOD.Studio.PLAYBACK_STATE state;
-                    m_gameMusicEventInstance.getPlaybackState(out state);
-
-                    if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-                        m_gameMusicEventInstance.start();
-
-                    m_gameMusicEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(Camera.main.transform));
-                }
-
-                ChangeMusic(musicType);
-                break;
-        }
-    }
-
-    /// <summary>
-    /// Dynamically changes the music to the specified music type seamlessly with FMOD parameters.
-    /// </summary>
-    /// <param name="musicType"></param>
-    public void ChangeMusic(MusicType musicType)
-    {
-        switch (musicType)
-        {
-            case MusicType.Inside:
-                StartCoroutine(LerpMusicParameter(1));
-                CurrentlyPlayingMusic = MusicType.Inside;
-                break;
-
-            case MusicType.Outside:
-                StartCoroutine(LerpMusicParameter(0));
-                CurrentlyPlayingMusic = MusicType.Outside;
-                break;
-            case MusicType.Menu:
-                CurrentlyPlayingMusic = MusicType.Menu;
-                break;
-        }
-    }
-
-    /// <summary>
-    /// Plays OneShot sound from RuntimeManager at player position
-    /// </summary>
-    public void PlayOneShotSound(EventReference oneShot)
-    {
-        // If different sound or timeCooldown 
-        if ((!oneShot.Equals(m_lastPlayedOneshot) || Time.time - m_lastBlipTime >= m_blipCooldown) && Camera.main != null)
-        {
-            // Pogo pitch
-            if (oneShot.Equals(m_pogoSoundEvent))
+            // Start Inside or Outdoor music (parameter is handled in Update)
+            if (m_gameMusicEventInstance.isValid() && Camera.main != null)
             {
-                RuntimeManager.StudioSystem.setParameterByName("Parameter_Pogo_Pitch", m_pitch);
-                
-                // Adjust pitch
-                m_pitch++;
-                m_pitchTimer = 0f;
+                FMOD.Studio.PLAYBACK_STATE state;
+                m_gameMusicEventInstance.getPlaybackState(out state);
+
+                if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+                    m_gameMusicEventInstance.start();
+
+                m_gameMusicEventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(Camera.main.transform));
             }
 
-            // Play sound
-            m_lastPlayedOneshot = oneShot;
-            RuntimeManager.PlayOneShot(oneShot, Camera.main.transform.position);
-            m_lastBlipTime = Time.time;
-        }
+            ChangeMusic(musicType);
+            break;
     }
+}`,
+          },
+          {
+              type: "text",
+              heading: "Designing Levels",
+              body: `Using the knowledge I gained from the **audio designer** and **artists**, I made levels that truly immersed the player with the environment through **art**, **music**, and **sound**.
+              
+              As a **technical game designer**, I made each screen with a specific **message** or **purpose** in mind. With all these tools, I made levels with **quality**, **purpose**, and that fit our **Level Design Do's and Don'ts**.`,
+          },
+          {
+              type: "slides", // embeds a Google Slides deck
+              url: "https://docs.google.com/presentation/d/1GuyFUnTfL2LRFVD1jMucTOiCYOKO9BG-MynpWYGEc0E/edit?usp=sharing",
+              caption: "Game design pitch deck",
+          },
+          ],
+      },
+      {
+          title: "Build Master Tasks",
+          blocks: [
+          {
+              type: "text",
+              heading: "",
+              body: `As our team's **Build Master** for **MassDiGI's 2026 Summer Innovation Program**, I was in charge of handling all **Cloud Building** for **Drop Off Dragon**.
+              
+              Once our build pipeline was setup during the Vertical Slice Phase, we found locally building to Android was a little faster for testing mobile specific features instead of Unity Connect.
+            
+              When ready to build, I would merge our dev branch into main, build for the specific platforms in Unity Dashboard, and push the changes in internal testing in **App Store Connect** and **Google Play Console**.  
+              `,
+          },
+          {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/BuildPipeline.png`,
+            caption: "Drop Off Dragon's Build Pipeline",
+          },
+          ],
+      },
+      {
+          title: "MassDiGI",
+          blocks: [
+          {
+              type: "text",
+              heading: "",
+              body: "**I am so grateful** to have been given the opportunity for **MassDiGI SIP' 26**. Here are some **pictures** and our **blog post**!",
+          },
+          {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/TeamPicture.jpg`,
+            caption: `"Badgers of Bikes" Team Picture for Drop Off Dragon`,
+          }, 
+          {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/SIP26.jpg`,
+            caption: `MassDiGI SIP' 26`,
+          }, 
+          {
+              type: "text",
+              heading: "Blog Post",
+              body: "",
+          },
+          {
+              type: "imageLink",
+              src: `${import.meta.env.BASE_URL}assets/MassDiGIBadge.png`,
+              href: "https://massdigi.org/news/game-launch-drop-off-dragon-7-28-26/",
+              caption: "",
+              compact: true,
+          },
+          ],
+      },
+      ],
 
-    /// <summary>
-    /// Lerps the music paramater from 0 to 1 or 1 to 0
-    /// </summary>
-    /// <param name="targetState"></param>
-    /// <returns></returns>
-    private IEnumerator LerpMusicParameter(float targetState)
-    {
-        while (m_currentMusicParameter != targetState)
-        {
-            m_currentMusicParameter = Mathf.MoveTowards(m_currentMusicParameter, targetState, m_musicLerpSpeed);
-            m_gameMusicEventInstance.setParameterByName("Gameplay_Location", m_currentMusicParameter, true);
-            yield return new WaitForFixedUpdate();
-        }
-        yield return null;
-    }
+      tags: [
+      { id: 1, name: "IOS", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
+      { id: 2, name: "Google Play", color: "bg-green-600/30 text-green-200 border-green-500/30" },
+      { id: 3, name: "PlasticSCM", color: "bg-red-600/30 text-red-200 border-red-500/30" },
+      { id: 4, name: "Miro",  color: "bg-lime-600/30 text-lime-200 border-lime-500/30" },
+      { id: 5, name: "C#", color: "bg-orange-600/30 text-orange-200 border-orange-500/30" },
+      { id: 6, name: "Unity", color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
+      { id: 7, name: "Mobile",  color: "bg-grey-600/30 text-grey-200 border-grey-500/30" },
+      ],
+  },
 
-    #region Loops
-
-    /// <summary>
-    /// Starts the fireball loop if it isn't already playing.
-    /// </summary>
-    public void StartFireballLoop()
-    {
-        if (!m_groundPoundFireSoundEventInstance.isValid())
-        {
-            m_groundPoundFireSoundEventInstance = RuntimeManager.CreateInstance(m_groundPoundFireSoundEvent);
-        }
-
-        FMOD.Studio.PLAYBACK_STATE state;
-        m_groundPoundFireSoundEventInstance.getPlaybackState(out state);
-
-        if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            m_isGroundPoundFireSoundPlaying = true;
-            m_groundPoundFireSoundEventInstance.start();
-        }
-    }
-
-    /// <summary>
-    /// Stops the fireball loop.
-    /// </summary>
-    public void StopFireballLoop()
-    {
-        if (!m_groundPoundFireSoundEventInstance.isValid())
-            return;
-        
-        m_isGroundPoundFireSoundPlaying = false;
-        m_groundPoundFireSoundEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    }
-
-    /// <summary>
-    /// Starts the chain loop if it isn't already playing.
-    /// </summary>
-    public void StartChainLoop()
-    {
-        if (!m_slamGateChainEventInstance.isValid())
-        {
-            m_slamGateChainEventInstance = RuntimeManager.CreateInstance(m_slamGateChainEvent);
-        }
-
-        FMOD.Studio.PLAYBACK_STATE state;
-        m_slamGateChainEventInstance.getPlaybackState(out state);
-
-        if (state != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            m_isSlamGateChainPlaying = true;
-            m_slamGateChainEventInstance.start();
-        }
-    }
-
-    /// <summary>
-    /// Stops the chain loop.
-    /// </summary>
-    public void StopChainLoop()
-    {
-        if (!m_slamGateChainEventInstance.isValid())
-            return;
-        
-        m_isSlamGateChainPlaying = false;
-        m_slamGateChainEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    }
-    #endregion
-
-    /// <summary>
-    /// Handles the pogo pitch incrementing on consecutive pogo in 1 second (constant value)
-    /// Called in Update
-    /// </summary>
-    private void HandlePitch()
-    {
-        m_pitchTimer += Time.deltaTime;
-
-        if (m_pitchTimer > 1f)
-        {
-            m_pitch = 0;
-        }
-    }
-    
-    /// <summary>
-    /// 0 - Unpaused
-    /// 1 - Paused
-    /// Adds low pass filter to any music related sound
-    /// Mostly used on pause
-    /// </summary>
-    /// <param name="value"></param>
-    public void ApplyLowPassFilter(float value)
-    {
-        RuntimeManager.StudioSystem.setParameterByName("Parameter_PauseMenu", value);
-    }
-
-    #endregion
-}` },
-        {title: "Save Manager", language: "C#", code: `using System.Collections.Generic;
-using FMODUnity;
-using Lofelt.NiceVibrations; // Haptics
-using UnityEngine;
-using UnityEngine.Events;
-
-// @author: Jake DeRoma
-// Collectable addendum: James Prendergast
-public class SaveManager : MonoBehaviour
-{
-    public enum TimerState {Paused, Off, On}
-
-    #region Variables
-    [Header("Singleton")]
-    [Space(10)]
-    public static SaveManager Instance; // singleton
-    public const int k_levelScenes = 16; // buffer for levels amount including cutscenes (can be adjusted for more space)
-    
-    [Header("Events")]
-    [Space(10)]
-    [Tooltip("Triggered when save data is loaded")]
-    public UnityEvent SaveLoaded;
-    [Tooltip("Triggered when save data is saved")]
-    public UnityEvent DataSaved;
-    [Tooltip("Triggered when save data is deleted")]
-    public UnityEvent SaveDeleted;
-
-    #endregion
-
-    [Header("Save Data")]
-    [Space(10)]
-    [HideInInspector] public List<int> LevelsCollectables; // L0 XXXX, L1 XXXX, L2 XXXX... (4 bits each)
-    [HideInInspector] public List<bool> LevelsDevTimesBeaten; // Level 0 Dev Time Beat, Level 1 Dev Time Beat, etc...
-    [HideInInspector] public List<bool> LevelsCompleted;  // Level 0 Complete, Level 1 Complete, Level 2 Complete, etc..
-    public int TapCount; // Total taps
-    public bool UnlockedDevTimes; // If unlocked dev times
-    public bool IsSFXMuted = false; // If sfx muted
-    public bool IsMusicMuted = false; // If musics muted
-    public bool IsHapticsMuted = false; // If haptics muted
-    private float m_currentLevelTime = 0f; // current level time
-    private TimerState m_currentTimerState; // Timer State (Paused, On, Off)
-
-    // Save Tags which are saved to ES3
-    private const string k_levelCollectables = "LEVEL_COLLECTABLES";
-    private const string k_levelDevTimeBeaten = "LEVEL_DEVTIMES_COMPLETE";
-    private const string k_tapCountTag = "TAP_COUNT";
-    private const string k_unlockedDevTimesTag = "UNLOCKED_DEV_TIMES";
-    private const string k_levelsCompletedTag = "LEVELS_COMPLETED";
-    private const string k_optionsMusicTag = "MUSIC_SETTINGS";
-    private const string k_optionsSFXTag = "SFX_SETTINGS";
-    private const string k_optionsHapticsTag = "HAPTICS_SETTINGS";
-    
-    /// <summary>
-    /// Awake
-    /// </summary>
-    void Awake() {
-        // Setting up singleton design
-        if(Instance) {
-            Debug.LogWarning($"More than 1 Save Manager in the scene, deleting {transform.name}");
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
-
-    /// <summary>
-    /// Start
-    /// </summary>
-    void Start()
-    {
-        InitializeStats();
-    }
-
-    /// <summary>
-    /// Update
-    /// </summary>
-    void Update()
-    {
-        // Increment the current levels time for speedrunning long term retention
-        if (m_currentTimerState == TimerState.On)
-        {
-            m_currentLevelTime += Time.deltaTime;
-        }
-    }
-
-    /// <summary>
-    /// Resets and initializes all Saveable Stats and Loads them from the SaveFile
-    /// </summary>
-    private void InitializeStats()
-    {
-        // Declare
-        var defaultCompleted = new List<bool>();
-        var defaultDevTimeComplete = new List<bool>();
-        var defaultCollectables = new List<int>();
-        for (int i = 0; i < k_levelScenes; i++)
-        {
-            defaultCompleted.Add(false);
-            defaultDevTimeComplete.Add(false);
-            defaultCollectables.Add(0);
-        }
-
-        // Initialize
-        LevelsCompleted = ES3.Load(k_levelsCompletedTag, defaultCompleted);
-        LevelsCollectables = ES3.Load(k_levelCollectables, defaultCollectables);
-        LevelsDevTimesBeaten = ES3.Load(k_levelDevTimeBeaten, defaultDevTimeComplete);
-        TapCount = ES3.Load(k_tapCountTag, 0);
-        UnlockedDevTimes = ES3.Load(k_unlockedDevTimesTag, false);
-        IsHapticsMuted = ES3.Load(k_optionsHapticsTag, true);
-        IsMusicMuted = ES3.Load(k_optionsMusicTag, false);
-        IsSFXMuted = ES3.Load(k_optionsSFXTag, false);
-
-        // Update Options values and apply them
-        UpdateIsMuted();
-
-        // Debug save data
-        if (DebugManager.Instance.DebugModeEnabled)
-        {
-            Debug.Log("ALL GAME DATA LOADED FROM SAVE");
-            PrintAllSavedData();
-        }
-
-        // Call event
-        SaveLoaded.Invoke();
-    }
-
-    /// <summary>
-    /// @author Rose Briggs
-    /// Set the mute state of the two audio busses
-    /// </summary>
-    private void UpdateIsMuted() {
-        RuntimeManager.GetBus("bus:/Group_Music").setMute(IsMusicMuted);
-        RuntimeManager.GetBus("bus:/Group_SFX").setMute(IsSFXMuted);
-        HapticController.hapticsEnabled = IsHapticsMuted;
-    }
-
-    /// <summary>
-    /// Saves all data
-    /// </summary>
-    public void SaveAll()
-    {
-        // Save level data
-        ES3.Save(k_levelsCompletedTag, LevelsCompleted);
-        ES3.Save(k_levelCollectables, LevelsCollectables);
-        ES3.Save(k_levelDevTimeBeaten, LevelsDevTimesBeaten);
-        ES3.Save(k_tapCountTag, TapCount);
-        ES3.Save(k_unlockedDevTimesTag, UnlockedDevTimes);
-
-        // Save options data
-        ES3.Save(k_optionsHapticsTag, IsHapticsMuted);
-        ES3.Save(k_optionsMusicTag, IsMusicMuted);
-        ES3.Save(k_optionsSFXTag, IsSFXMuted);
-
-        // Debug we saved
-        if (DebugManager.Instance.DebugModeEnabled)
-        {
-            Debug.Log("ALL DATA SUCCESSFULLY SAVED");
-
-            PrintAllSavedData();
-        }
-
-        // Call data event
-        DataSaved.Invoke();
-    }
-
-    /// <summary>
-    /// Deletes all data
-    /// </summary>
-    public void DeleteAllData()
-    {
-        // Store the muted values so they arent deleted
-        bool sfxMuted = IsSFXMuted;
-        bool musicMuted = IsMusicMuted;
-        bool hapticsMuted = IsHapticsMuted;
-
-        // Delete keys
-        ES3.DeleteKey(k_levelsCompletedTag);
-        ES3.DeleteKey(k_levelCollectables);
-        ES3.DeleteKey(k_levelDevTimeBeaten);
-        ES3.DeleteKey(k_tapCountTag);
-        ES3.DeleteKey(k_unlockedDevTimesTag);
-        ES3.DeleteKey(k_optionsHapticsTag);
-        ES3.DeleteKey(k_optionsMusicTag);
-        ES3.DeleteKey(k_optionsSFXTag);
-
-        // Initialize stats to default value
-        InitializeStats();
-
-        // Debug new data deleted
-        if (DebugManager.Instance.DebugModeEnabled)
-        {
-            Debug.Log("ALL SAVE FILES DELETED");
-
-            PrintAllSavedData();
-        }
-
-        // Call Save Deleted
-        SaveDeleted.Invoke();
-
-        // Restore muted values for Options Menu
-        IsSFXMuted = sfxMuted;
-        IsMusicMuted = musicMuted;
-        IsHapticsMuted = hapticsMuted;
-        UpdateIsMuted();
-
-        // Re-save all values to save default values
-        SaveAll();
-    }
-
-    /// <summary>
-    /// Sets the collectable data saved for this level
-    /// </summary>
-    /// <param name="levelIndex"></param>
-    /// <param name="collectableBits"></param>
-    public void SetLevelCollectable(int levelIndex, int collectableBits) {
-        if (levelIndex == -1) return;
-        
-        LevelsCollectables[levelIndex] = LevelsCollectables[levelIndex] | collectableBits;
-        ES3.Save(k_levelCollectables, LevelsCollectables);
-    }
-
-    /// <summary>
-    /// Note: This method is only called when Save Data is changed and can be toggled in DebugManager
-    /// Displays all Saved Data and their values for debugging
-    /// </summary>
-    private void PrintAllSavedData()
-    {
-        Debug.Log("--- FULL SAVE DATA START ---");
-
-        for (int i = 0; i < LevelsCompleted.Count; i++)
-        {
-            Debug.LogFormat("Level {0}: Completed? {1}.", i, LevelsCompleted[i]);
-        }
-
-        for (int i = 0; i < LevelsCollectables.Count; i++)
-        {
-            Debug.LogFormat("Level {0}: Collectables = {1}.", i, LevelsCollectables[i]);
-        }
-
-        for (int i = 0; i < LevelsDevTimesBeaten.Count; i++)
-        {
-            Debug.LogFormat("Level {0}: Dev Time Beaten = {1}.", i, LevelsDevTimesBeaten[i]);
-        }
-
-        Debug.LogFormat("Total Tap Count: {0}", TapCount);
-        Debug.LogFormat("Dev Times Unlocked: {0}", UnlockedDevTimes);
-        Debug.LogFormat("Haptics are Muted: {0}", IsHapticsMuted);
-        Debug.LogFormat("Music is Muted: {0}", IsMusicMuted);
-        Debug.LogFormat("SFX are Muted: {0}", IsSFXMuted);
-        Debug.Log("--- FULL SAVE DATA END ---");
-    }
-
-    /// <summary>
-    /// Starts Game Timer
-    /// </summary>
-    public void StartTimer()
-    {
-        m_currentTimerState = TimerState.On;
-    }
-
-    /// <summary>
-    /// Resets Game Timer
-    /// </summary>
-    public void ResetTimer()
-    {
-        m_currentTimerState = TimerState.Off;
-        m_currentLevelTime = 0f;
-    }
-
-    /// <summary>
-    /// Pauses Game Timer
-    /// </summary>
-    public void PauseTimer()
-    {
-        m_currentTimerState = TimerState.Paused;
-    }
-
-    /// <summary>
-    /// Submits Game Timer with fastest time and saves all information
-    /// Called after Winning a full level
-    /// </summary>
-    public void SubmitStats(int currentLevelNumber)
-    {
-        LevelsCompleted[currentLevelNumber] = true;
-
-        // Combine collectables if level exists
-        if (LevelManager.Instance.IsLevelLoaded()) {
-            // get current
-            int alreadyCollected = GetLevelCollectable(currentLevelNumber);
-            // get new
-            int newCollected = LevelManager.Instance.GetCollectables();
-            LevelsCollectables[currentLevelNumber] = alreadyCollected | newCollected; // combine
-        }
-        
-        SaveAll();
-        ResetTimer();
-    }
-
-    /// <summary>
-    /// Resets all level completion
-    /// </summary>
-    public void ResetAllLevelCompletion()
-    {
-        LevelsCompleted.Clear();
-    }
-
-    /// <summary>
-    /// Returns the furthest completed level index, returns -1 if 0 is not even finished
-    /// </summary>
-    /// <returns></returns>
-    public int GetFurthestCompletedIndex()
-    {   
-        int index = -1;
-
-        foreach (bool item in LevelsCompleted)
-        {
-            if (item)
-            {
-                index++;
-            }
-        }
-
-        return index;    
-    }
-
-    /// <summary>
-    /// Saves on exit
-    /// In LevelSelect Script: Saves on Scene change
-    /// </summary>
-    public void OnApplicationQuit()
-    {
-        SaveAll();
-    }
-
-
-    // collectables author: James Prendergast
-    /// <summary>
-    /// returns the collectable data saved for this level
-    /// </summary>
-    /// <param name="levelIndex">what index to read</param>
-    /// <returns>the bits of the collected collectables</returns>
-    public int GetLevelCollectable(int levelIndex) {
-        return LevelsCollectables[levelIndex];
-    }
-}`},
-        ],
-        designSnippets: [
-            {
-            title: "Build Pipeline",
-            image: `${import.meta.env.BASE_URL}assets/BuildPipeline.png`,
-            },
-            {
-            title: "Indoor & Outdoor Design",
-            image: `${import.meta.env.BASE_URL}assets/IndoorOutdoor.png`,
-            },
-            {
-            title: "Screen Design",
-            image: `${import.meta.env.BASE_URL}assets/DropOffDragonDesign.png`,
-            },
-        ],
-        tags: [
-        { id: 1, name: "IOS", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
-        { id: 2, name: "Google Play", color: "bg-green-600/30 text-green-200 border-green-500/30" },
-        { id: 3, name: "PlasticSCM", color: "bg-red-600/30 text-red-200 border-red-500/30" },
-        { id: 4, name: "C#", color: "bg-orange-600/30 text-orange-200 border-orange-500/30" },
-        { id: 5, name: "Unity", color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
-        ],
-    },
-
-    // Fobia Fights
-    {
+  // Fobia Fights
+  {
     id: 2,
+    slug: "fobia-fights",
     title: "Fobia Fights",
+    titleColor: "#90092D",
  
     // Descriptions
-    description: "A Fast-Paced Online Multiplayer Brawler",
+    description: "Solo developed an Online Multiplayer PvP game. 2024-2026",
     subDescription: [],
  
     // Links
     href: "",
     github: "",
     liveDemo: "",
- 
-    // Media Pictures lol with hovering images that get cycled
+
     image: `${import.meta.env.BASE_URL}assets/FobiaFights.png`,
     hoverImage: [
       `${import.meta.env.BASE_URL}assets/FobiaFightsScreenshot1.png`,
@@ -858,349 +353,362 @@ public class SaveManager : MonoBehaviour
     youtubeUrl: "https://youtu.be/w5foFyxMQHI",
  
     // ProjectDetails — header
-    overview:
-      "Dive into a chaotic, fear-fueled multiplayer brawl, where you’ll outwit, scare, and eliminate your friends using their deepest, darkest fears - all while they’re plotting to do the same to you! Designed to spark late night chaos between friends, this game truly shines when played with your entire friend group.",
+    overview: `
+    Fobia Fights is an **online multiplayer** PvP game, released on **Steam**, and available for Windows which accumulated **300+ Wishlists**!.
+
+    I developed functionality for customizing your character, outfit, and knife to your liking, and then enter the fight against your friends! At the start of my **senior year of high school**, I decided to make a game that would allow me to **grow** as a designer and engineer.
+
+    I wanted to experiment with a unique **combat system** that combined the chaotic nature of **Mario Kart power-ups** with a skill-based 2D top-down brawler. Throughout multiple iterations, I was able to create a combat system that was both fun and engaging, while also being easy to learn and hard to master.
+
+    I experimented with different character, outfit, and knife abilities that each added a new layer to the **combat system** and allowed for a variety of playstyles. Through a series of **internal playtests**, I was able to **tune** and **balance** gameplay mechanics.
+
+    I made sure to implement features that made players want to come back, such as a progression and prestige system, prestige loadouts, and **Steam achievements**.
+
+    Since I was developing this game **solo**, I made sure to stay organized and **write down** my ideas and **design pillars** so that I could make decisions that aligned with my vision for the game.
+    `,
  
     // ProjectDetails — details grid
     details: {
-      role: "Solo Developed by Jake DeRoma (JakerDevs)",
-      type: "Multiplayer PvP Game",
-      platform: "Windows, Steam",
+      role: "Solo Developer",
+      type: "Online Multiplayer PvP",
+      platform: "Steam",
       language: "C#",
-      software: ["Unity", "Pun2", "Aseprite", "FL Studio", "Audactiy", "DaVinci Resolve", ],
-      duration: "2 years (On and Off)",
+      software: ["Unity", "Photon", "Aseprite", "FL Studio", "Audactiy", "DaVinci Resolve", ],
+      duration: "20 months, Dec 2024 - Aug 2026",
     },
- 
-    // ProjectDetails — code snippets
-    codeSnippets: [
+
+    // Shown right under the About section, before the custom sections below
+    imageLink: {
+      src: `${import.meta.env.BASE_URL}assets/SteamBadge.png`,
+      href: "https://store.steampowered.com/app/3438550/Fobia_Fights/",
+      caption: "",
+      compact: true, // shrinks it to a centered, button-sized card instead of full width
+    },
+
+    sections: [
       {
-        title: "Lobby Creation and Joining",
-        language: "C#",
-        code: `/// <summary>
-/// Joins a Pun2 room or creates a new one depending on game settings:
-/// Handles both private and public matchmaking logic, including room configuration,
-/// custom properties, and accessing Steam API
-/// </summary>
-public void JoinRoom()
-{
-    // Validate that the player has all required unlocks before allowing matchmaking
-    // returns early if any required unlocks are missing
-    CheckPlayerLoadoutUnlocks(); 
-
-    Debug.Log("Connecting to Pun2...");
-
-    RoomOptions roomOptions;
-
-    // PRIVATE GAME LOGIC
-    if (gameSettings.isPrivateGame)
-    {
-        // If no room code exists, generate a new private lobby code
-        if (string.IsNullOrEmpty(roomNameToJoin))
-        {
-            do
-            {
-                code = gameSettings.GenerateLobbyCode();
-            }
-            while (!gameSettings.IsValidLobbyCode(code));
-
-            roomNameToJoin = code;
-            Debug.Log("Creating new private room: " + roomNameToJoin);
-        }
-        else
-        {
-            Debug.Log("Joining existing private room: " + roomNameToJoin);
-        }
-
-        // Persist room name in the global game settings so everyone can see
-        gameSettings.roomName = roomNameToJoin;
-
-        // Make private room settings
-        roomOptions = new RoomOptions
-        {
-            MaxPlayers = 6,
-            IsOpen = true,
-            IsVisible = true,
-
-            // Custom data shared across all clients in the room
-            CustomRoomProperties = new Hashtable
-            {
-                { "gameTime", gameSettings.gameTime },
-                { "itemSpawnRate", gameSettings.itemSpawnRate },
-                { "private", true },
-                { "mapNumber", gameSettings.mapNumber },
-                { "phobiasInGame", gameSettings.phobiasInTheGame },
-                { "region", PhotonNetwork.CloudRegion }
-            },
-
-            // Properties exposed in the lobby
-            CustomRoomPropertiesForLobby = new string[]
-            {
-                "gameTime",
-                "itemSpawnRate",
-                "private",
-                "mapNumber",
-                "phobiasInGame",
-                "region"
-            }
-        };
-    }
-
-    // PUBLIC GAME LOGIC
-    else
-    {
-        // Use Steam username as part of the room name if available
-        if (Steamworks.SteamClient.IsValid)
-        {
-            roomNameToJoin = SteamManager.Instance.PlayerSteamName + "'s "+ RandomAdjective() + " Room: ";
-        }
-        else
-        {
-            // Fallback
-            roomNameToJoin = "?";
-        }
-
-        gameSettings.roomName = roomNameToJoin;
-        Debug.Log("Joining public room");
-
-        // Configure public matchmaking room settings
-        roomOptions = new RoomOptions
-        {
-            MaxPlayers = 6,
-            IsOpen = true,
-            IsVisible = true,
-
-            CustomRoomProperties = new Hashtable
-            {
-                { "gameTime", gameSettings.gameTime },
-                { "itemSpawnRate", gameSettings.itemSpawnRate },
-                { "private", false },
-                { "mapNumber", gameSettings.mapNumber },
-                { "phobiasInGame", gameSettings.phobiasInTheGame },
-                { "region", PhotonNetwork.CloudRegion }
-            },
-
-            CustomRoomPropertiesForLobby = new string[]
-            {
-                "gameTime",
-                "itemSpawnRate",
-                "private",
-                "mapNumber",
-                "phobiasInGame"
-            }
-        };
-    }
-
-    // PHOTON ROOM CONNECTION
-
-    // Join existing room or create it if it doesn't exist with the proper roomOptions
-    PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, roomOptions, null);
-
-    // UI transition: hide name entry and show connecting screen
-    nameUI.SetActive(false);
-    connectingUI.SetActive(true);
-}`,
+        title: "Combat & Loadout System",
+        blocks: [
+          {
+            type: "text",
+            body: "When designing the loadout system, I wanted to make \"Classes\" that suited different **playstyles** (Tank, Troll, or Tracker) but adapted for Fobia Fights:",
+          },
+          {
+            type: "list",
+            rows: [
+              {
+                heading: "Jeri (Glass Cannon)",
+                bullets: [
+                  "Taking inspiration from the \"Cactus\" class in **Plants vs Zombies: Garden Warfare**. Jeri can morph into a fast drone-like spider that can deal a lot of damage but is very fragile.",
+                  "When designing Jeri, I wanted players to fall in love with the character through **Jeri's** monstrous design similar to **Webber** from **Don't Starve Together**.",
+                ],
+              },
+              {
+                heading: "Skulk (Duelist)",
+                bullets: [
+                  "Taking inspiration from **Sekiro: Shadows Die Twice**, Skulk makes **parrying** even more important. Through smaller parry windows and causing bleed on successful parries, Skulk acts as a high-skill ceiling character that rewards players for learning the timing of their attacks.",
+                ],
+              },
+              {
+                heading: "Etty (Dasher)",
+                bullets: [
+                  "Being the fastest character in the game, Etty acts as a fun **hit-and-run** style character that can dash through other players.",
+                  "Etty stands out for being a non-binary character that is designed to be a fun and approachable character for players of all genders and skills.",
+                ],
+              },
+            ],
+          },
+          {
+            type: "video",
+            src: `${import.meta.env.BASE_URL}assets/JeriGIF.gif`,
+            caption: "Jeri morph ability showcase",
+          }
+        ],
       },
       {
-        title: "Multiplayer Audio Controller",
-        language: "C#",
-        code: `/// <summary>
-/// MultiplayerAudioController using Pun2:
-/// This component provides control over multiple NamedAudioSources,
-/// allowing synchronized playback across clients (self, others, or all)
-/// </summary>
-[RequireComponent(typeof(PhotonView))]
-public class MultiplayerAudioController : MonoBehaviourPun
-{
-    /// <summary>
-    /// Serializable wrapper that binds a name to an AudioSource
-    /// </summary>
-    [System.Serializable]
-    public class NamedAudioSource
-    {
-        [Tooltip("Unique name for the AudioSource")]
-        public string sourceName;
+        title: "Phobia System",
+        blocks: [
+          {
+            type: "text",
+            heading: "",
+            body: `I wanted to replicate the chaotic nature of **Mario Kart power-ups** that can be used during **combat**.
+                
+            I designed each phobia to have a unique effect that can be used during **different situations.**
 
-        [Tooltip("Reference to the AudioSource")]
-        public AudioSource source;
-
-        [Tooltip("If true, the audio will restart from the beginning on each play")]
-        public bool alwaysRestart = true;
-    }
-
-    [Header("Audio Sources")]
-    [Tooltip("List of named AudioSources that can be controlled through RPC or local calls")]
-    [SerializeField] private List<NamedAudioSource> audioSources = new List<NamedAudioSource>();
-
-    [Space(10)]
-
-    /// <summary>
-    /// Dictionary for fast runtime access to AudioSources by name
-    /// </summary>
-    private Dictionary<string, AudioSource> audioSourceDictionary = new Dictionary<string, AudioSource>();
-
-    /// <summary>
-    /// Initializes the dictionary for fast audio retrieval
-    /// </summary>
-    private void Awake()
-    {
-        foreach (var namedSource in audioSources)
-        {
-            if (namedSource.source == null)
-            {
-                Debug.LogWarning("AudioSource is null for: " + namedSource.sourceName);
-                continue;
-            }
-
-            if (!audioSourceDictionary.ContainsKey(namedSource.sourceName))
-            {
-                audioSourceDictionary.Add(namedSource.sourceName, namedSource.source);
-            }
-        }
-    }
-
-    #region Play Methods
-
-    /// <summary>
-    /// Plays an audio source on all connected clients
-    /// </summary>
-    public void PlayForAll(string sourceName)
-    {
-        if (!ValidateSource(sourceName)) return;
-
-        photonView.RPC("RPC_PlaySource", RpcTarget.All, sourceName);
-    }
-
-    /// <summary>
-    /// Plays an audio source only on the local client
-    /// </summary>
-    public void PlayForSelf(string sourceName)
-    {
-        if (!ValidateSource(sourceName)) return;
-
-        PlaySourceInternal(sourceName);
-    }
-
-    /// <summary>
-    /// Plays audio locally and optionally triggers on a target player
-    /// </summary>
-    public void PlayForSelfAndTarget(string sourceName, GameObject targetPlayer)
-    {
-        if (!ValidateSource(sourceName)) return;
-
-        // Play locally
-        PlaySourceInternal(sourceName);
-
-        // Play on target player if valid
-        if (targetPlayer != null && targetPlayer != this.gameObject)
-        {
-            PhotonView targetView = targetPlayer.GetComponent<PhotonView>();
-            if (targetView != null)
-            {
-                photonView.RPC("RPC_PlaySource", targetView.Owner, sourceName);
-            }
-        }
-    }
-
-    /// <summary>
-    /// Plays an audio source on all clients except the local one
-    /// </summary>
-    public void PlayForOthers(string sourceName)
-    {
-        if (!ValidateSource(sourceName)) return;
-
-        photonView.RPC("RPC_PlaySource", RpcTarget.Others, sourceName);
-    }
-
-    /// <summary>
-    /// RPC call used to trigger play on remote clients
-    /// </summary>
-    [PunRPC]
-    private void RPC_PlaySource(string sourceName)
-    {
-        PlaySourceInternal(sourceName);
-    }
-
-    /// <summary>
-    /// Core play sound logic executed locally on all clients
-    /// Handles restart logic here
-    /// </summary>
-    private void PlaySourceInternal(string sourceName)
-    {
-        if (audioSourceDictionary.TryGetValue(sourceName, out AudioSource source))
-        {
-            if (!source.enabled)
-                source.enabled = true;
+            **For example: **
             
-            // Find the AudioSource
-            var namedSource = audioSources.Find(x => x.sourceName == sourceName);
+            • **Chronomentrophobia (Fear of Clocks)** is a phobia that is used to get away from players that are chasing you by rewinding you 6 seconds similar to Tracer from Overwatch's Recall ability.
 
-            // Play the sound with restart logic
-            if (namedSource.alwaysRestart || !source.isPlaying)
-            {
-                if (namedSource.alwaysRestart)
-                    source.Stop();
+            • **Trypanophobia (Fear of Needles)** covers the user in needles that deal thorns damage to players that attack them acting as a counter to faster melee characters.
 
-                source.Play();
-            }
-        }
-    }
-
-    #endregion
-
-    #region Helper Methods
-
-    /// <summary>
-    /// Validates the requested audio source
-    /// </summary>
-    private bool ValidateSource(string sourceName)
-    {
-        if (!audioSourceDictionary.ContainsKey(sourceName))
-        {
-            return false;
-        }
-        return true;
-    }
-
-    /// <summary>
-    /// Returns the status of an audio source
-    /// </summary>
-    public bool IsPlaying(string sourceName)
-    {
-        if (audioSourceDictionary.TryGetValue(sourceName, out AudioSource source))
-        {
-            return source.isPlaying;
-        }
-        return false;
-    }
-
-    #endregion
-}`,
+            (See the screenshots below for more phobia examples)
+            `,
+          },
+          {
+            type: "images", // grid of multiple images at once
+            items: [
+              { src: `${import.meta.env.BASE_URL}assets/FobiaFightsScreenshot4.jpg`, caption: "Fear of Bombs" },
+              { src: `${import.meta.env.BASE_URL}assets/FobiaFightsScreenshot2.png`, caption: "Fear of Tight Spaces" },
+              { src: `${import.meta.env.BASE_URL}assets/FobiaFightsScreenshot3.png`, caption: "Fear of Spiders" },
+            ],
+          },
+        ],
       },
-    ],
- 
-    // ProjectDetails — design highlight images
-    designSnippets: [
       {
-        title: "PhobiaHandler",
-        image: `${import.meta.env.BASE_URL}assets/PhobiaHandler.png`,
+        title: "Photon Networking",
+        blocks: [
+          {
+            type: "text",
+            heading: "",
+            body: `A popular networking solution for Unity is **Photon PUN 2**, which I used to implement the **online multiplayer** functionality in Fobia Fights.
+            
+            I implemented a lobby system that allowed players to create and join private or public rooms. I also implemented a matchmaking system that allowed players to find matches based on their region.
+
+            Using **Photon**, it slowed development down a bit, so in the future I would like to use a more robust networking solution like **Unity Netcode for GameObjects with Steam integration** to achieve a similar result.
+
+            This project was a **great** opportunity for me to learn about **networking** and **Steam integration** and, more importantly, **grow in my skills with C# to a more advanced level**.
+            
+            Some example code for the creation and joining of rooms:`,
+          },
+          {
+            type: "code",
+            heading: "Create / Join Room",
+            language: "csharp",
+            code: `public void JoinRoom()
+    {
+        // Returns nulls if the selected loadout is not fully unlocked
+        CheckIfLoadoutIsValid(); 
+        
+        // Declare room options
+        RoomOptions roomOptions;
+        
+        // Set room options
+        if (gameSettings.isPrivateGame)
+        {
+            // For private games, generate a new room name only if we're not joining an existing one
+            if (string.IsNullOrEmpty(roomNameToJoin))
+            {
+                // Generate a new lobby code until we find a valid one
+                do
+                {
+                    code = gameSettings.GenerateLobbyCode();
+                } while (!gameSettings.IsValidLobbyCode(code));
+                roomNameToJoin = code;
+                Debug.Log("Creating new private room: " + roomNameToJoin);
+            }
+            else
+            {
+                Debug.Log("Joining existing private room: " + roomNameToJoin);
+            }
+
+            // Set name to lobby code for private games
+            gameSettings.roomName = roomNameToJoin;
+            
+            // Generates room properties and sets the room options for a private game
+            GenerateRoomProperties(true); // true for private game
+        }
+        else  
+        {
+            // For public games, use "?" to let Photon assign a random room
+            if (Steamworks.SteamClient.IsValid)
+            {
+                roomNameToJoin = SteamManager.Instance.PlayerSteamName + "'s " + RandomAdjective() + " Room: ";
+            } else
+                roomNameToJoin = "?"; // Failsafe
+            
+            // Set name to lobby code for public games
+            gameSettings.roomName = roomNameToJoin;
+            Debug.Log("Joining public room");
+            
+            // Generates room properties and sets the room options for a public game
+            GenerateRoomProperties(false); // false for public game
+        }
+
+        // Join or create the room with the specified name and options
+        PhotonNetwork.JoinOrCreateRoom(roomNameToJoin, roomOptions, null);
+
+        // UI cleanup
+        nameUI.SetActive(false);
+        connectingUI.SetActive(true);
+    }`,
+          },
+        ],
+      },
+      {
+        title: "What I Learned",
+        blocks: [
+          {
+            type: "text",
+            heading: "",
+            body: `Through solo development of Fobia Fights, I learned a lot about the importance of **planning** and **organization**.
+            
+            I learned that it is important to have a clear vision for the game and to stick to it. I also learned that it is important to be flexible and to be willing to **change things if they are not working**. **Do not get too attached to your ideas in case they do not work for the game and benefit for the player**.
+            
+            Development wasn't always perfect as I had to solo develop the game; I learned so much about **shipping a game independently** and learning **how to make a game the right way** for future projects. Having started this project in **high school**, **my skills in C# programming and Unity have grown immensely** and I am now able to take on more **complex projects with my new skills**.
+            
+            I am so **grateful** for the opportunity to have worked on this project and wanted to share some **pictures** of the showcase of the game and **reactions** from players!`,
+          },
+          {
+            type: "text",
+            heading: "Showcase",
+            body: "",
+          },
+          {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/FobiaFightsShowcase.jpg`,
+            caption: "Me presenting Fobia Fights at Berklee College of Music's Senior Project Showcase with Dominik Bauer (Quasimixture) who made the music.",
+          },
+          {
+            type: "video",
+            src: `${import.meta.env.BASE_URL}assets/FobiaFightsShowcaseVideo.mp4`,
+            caption: "These two players kept coming back in line to play Fobia Fights at the showcase and were having a blast!",
+          },
+          {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/FobiaFightsShowcase2.png`,
+            caption: "Northeastern End of Semester Showcase where I presented Fobia Fights and got to show it off to other students.",
+          },
+        ],
       },
     ],
  
     // Tags shown on card and in Technologies section
     tags: [
         { id: 1, name: "Steam", color: "bg-blue-600/30 text-blue-200 border-blue-500/30" },
-        { id: 2, name: "PUN 2", color: "bg-teal-600/30 text-teal-200 border-teal-500/30" },
-        { id: 3, name: "GitHub", color: "bg-red-600/30 text-red-200 border-red-500/30" },
+        { id: 2, name: "Photon", color: "bg-teal-600/30 text-teal-200 border-teal-500/30" },
+        { id: 3, name: "Git", color: "bg-red-600/30 text-red-200 border-red-500/30" },
+        { id: 4, name: "Trello",  color: "bg-lime-600/30 text-lime-200 border-lime-500/30" },
+        { id: 5, name: "C#", color: "bg-orange-600/30 text-orange-200 border-orange-500/30" },
+        { id: 6, name: "Unity",  color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
+        { id: 7, name: "PC",  color: "bg-black-600/30 text-black-200 border-black-500/30" },
+    ],
+  },
+
+  // Popup://Tower
+  {
+    id: 3,
+    slug: "popup-tower",
+    title: "POPUP://TOWER",
+    titleColor: "#F2F2F2", // color of the bolded, centered project name on the details page
+ 
+    // Descriptions
+    description: "Co-developed the 29th Most Popular Game of GMTK 2026 Game Jam",
+    subDescription: [],
+ 
+    // Links
+    href: "",
+    github: "",
+    liveDemo: "",
+ 
+    // Media Pictures lol with hovering images that get cycled
+    image: `${import.meta.env.BASE_URL}assets/PopupTower.png`,
+    hoverImage: [
+      `${import.meta.env.BASE_URL}assets/PopupTowerScreenshot1.png`,
+      `${import.meta.env.BASE_URL}assets/PopupTowerScreenshot2.png`,
+      `${import.meta.env.BASE_URL}assets/PopupTowerScreenshot3.png`,
+    ],
+
+    // YouTube link for trailer
+    youtubeUrl: "",
+    mp4: `${import.meta.env.BASE_URL}assets/PopupTowerGameplay.mp4`,
+ 
+    // ProjectDetails — header
+    overview:
+      `Climb a number tower and beat minigames as the tower incrementally counts down. **Made for GMTK Game Jam 2026**!
+      
+      We took inspiration from **Frutiger Aero** visuals and combined with micro-games similar to childhood browser and DS games like **Pictochat**, **The Impossible Quiz**, and **The Password Game**.
+      
+      Our team joined **GMTK 2026** two days after it started because we were busy working on **Drop Off Dragon**. We designed an idea which led to **POPUP://TOWER**!
+      `,
+ 
+    imageLink: {
+    src: `${import.meta.env.BASE_URL}assets/ItchBadge.svg`,
+    href: "https://faketown.itch.io/popuptower",
+    caption: "",
+    compact: true,
+    },
+
+    sections: [
+    {
+        title: "My Work",
+        blocks: [
+        {
+            type: "text",
+            body: `As **Lead Techincal Game Designer**, I helped envision the idea of going up and down a tower for the theme **"Countdown."** I spent a lot of time collaborating with **Zoe Yang (Lead Artist)** to come up with a clear vision for the game. We came up with **Frutiger Aero but with Popups**! I was also in charge of directing the team on what to work on and approving design decisions.
+
+            Working with the other programmers, we used certain equations to get the scaling of the game in a spot we were happy with for the jam. If we had extra time, I would have loved to spend more time with **James Prendergast** and **Max Allen (the programmers)** on tuning the values of the difficulty scaling. In its current state, the game is moderately difficult.
+
+            **Overall**, the experience was **great** and **refined** my **technical design skills** working on a **smaller scale project** after **Drop Off Dragon**!
+            
+            **CREDITS**
+            Zoe Yang - Lead Artist
+            Jake DeRoma - Lead Technical Game Designer, Programmer
+            Rose Briggs - Lead Programmer
+            James 'Bird' Prendergast - Lead Sound Designer, Programmer, Math Nerd
+            Max Allen - Programmer, Balance Game Designer
+            Bashar Alqassar - Programmer
+            `,
+        },
+        ],
+    },
+    {
+        title: "Results",
+        blocks: [
+        {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/PopupTowerRatings.png`,
+            caption: ``,
+        }, 
+        {
+            type: "image",
+            src: `${import.meta.env.BASE_URL}assets/PopupTowerAnalytics.png`,
+            caption: `Itch.io Analytics`,
+        }, 
+        {
+            type: "text",
+            body: "",
+        },
+        ],
+    },
+    ],
+
+    // ProjectDetails — details grid
+    details: {
+      role: "Lead Technical Game Designer, Programmer",
+      type: "Incremental, Micro-games",
+      platform: "WebGL, Windows, Linux, Mac",
+      language: "C#",
+      software: ["Unity", "Itch.io", "Desmos", "VS Code"],
+      duration: "2 days (GMTK 2026 Game Jam)",
+    },
+ 
+    // Tags shown on card and in Technologies section
+    tags: [
+        { id: 1, name: "GMTK 2026", color: "bg-cyan-600/30 text-cyan-200 border-cyan-500/30" },
+        { id: 2, name: "27th Most Popular", color: "bg-yellow-600/30 text-yellow-200 border-yellow-500/30" },
+        { id: 3, name: "Git", color: "bg-red-600/30 text-red-200 border-red-500/30" },
         { id: 4, name: "C#", color: "bg-orange-600/30 text-orange-200 border-orange-500/30" },
         { id: 5, name: "Unity",  color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
+        { id: 6, name: "PC",  color: "bg-black-600/30 text-black-200 border-black-500/30" },
     ],
   },
 ];
 
+// Footer icons
 export const mySocials = [
   {
     name: "Linkedin",
     href: "https://www.linkedin.com/in/jakederoma/",
     icon: `${import.meta.env.BASE_URL}assets/socials/linkedIn.svg`,
+  },
+  {
+    name: "Git",
+    href: "https://github.com/Jaker333",
+    icon: `${import.meta.env.BASE_URL}assets/logos/github.svg`,
+  },
+  {
+    name: "Email",
+    href: "mailto:jakerdevs@gmail.com",
+    icon: `${import.meta.env.BASE_URL}assets/logos/mail.svg`,
   },
 ];

@@ -1,24 +1,28 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { useNavigate, useLocation } from "react-router-dom";
 
-/**
- * Navigation links shared between the desktop and mobile navigation menus
- */
-function Navigation({ openContact }) {
+function Navigation({ openContact, goToSection }) {
   return (
     <ul className="nav-ul">
-      {/* Projects Section */}
+      {/* Projects Section — scrolls to #projects on the home page*/}
       <li className="nav-li">
-        <a className="nav-link" href="#projects">
+        <button
+          className="nav-link cursor-pointer"
+          onClick={() => goToSection("projects")}
+        >
           Projects
-        </a>
+        </button>
       </li>
 
-      {/* About Section */}
+      {/* About Section*/}
       <li className="nav-li">
-        <a className="nav-link" href="#about">
+        <button
+          className="nav-link cursor-pointer"
+          onClick={() => goToSection("about")}
+        >
           About
-        </a>
+        </button>
       </li>
 
       {/* Opens resume PDF in a new browser tab */}
@@ -50,15 +54,34 @@ const Navbar = ({ openContact }) => {
   // Tracks whether the mobile navigation menu is open
   const [isOpen, setIsOpen] = useState(false);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   /**
-   * Smoothly scrolls the page back to the top when the site title is clicked.
-   * Also closes the mobile menu if it is open
+   * Scrolls to a section id on the home page
+   */
+  const goToSection = (id) => {
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+
+    setIsOpen(false);
+  };
+
+  /**
+   * Clicking the site title returns to the top of the home page.
    */
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    if (location.pathname !== "/") {
+      navigate("/");
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
 
     setIsOpen(false);
   };
@@ -67,7 +90,10 @@ const Navbar = ({ openContact }) => {
    * Opens the contact pop up supplied by the parent component and closes the mobile navigation
    */
   const handleOpenContact = () => {
-    openContact();
+    if (openContact) {
+      openContact();
+    }
+
     setIsOpen(false);
   };
 
@@ -92,9 +118,7 @@ const Navbar = ({ openContact }) => {
           >
             <img
               src={
-                isOpen
-                  ? `${import.meta.env.BASE_URL}assets/close.svg`
-                  : `${import.meta.env.BASE_URL}assets/menu.svg`
+                isOpen ? `${import.meta.env.BASE_URL}assets/close.svg` : `${import.meta.env.BASE_URL}assets/menu.svg`
               }
               className="w-6 h-6"
               alt="toggle"
@@ -103,7 +127,7 @@ const Navbar = ({ openContact }) => {
 
           {/* Desktop navigation hidden on small screens. */}
           <nav className="hidden sm:flex">
-            <Navigation openContact={handleOpenContact} />
+            <Navigation openContact={handleOpenContact} goToSection={goToSection} />
           </nav>
         </div>
       </div>
@@ -124,7 +148,7 @@ const Navbar = ({ openContact }) => {
           transition={{ duration: 0.3 }}
         >
           <nav className="pb-5">
-            <Navigation openContact={handleOpenContact} />
+            <Navigation openContact={handleOpenContact} goToSection={goToSection} />
           </nav>
         </motion.div>
       )}
