@@ -592,7 +592,7 @@ private void UpdateMusicState(Scene scene)
     titleColor: "#F2F2F2", // color of the bolded, centered project name on the details page
  
     // Descriptions
-    description: "Co-developed the 29th Most Popular Game of GMTK 2026 Game Jam",
+    description: "Co-developed the 27th Most Popular Game of GMTK 2026 Game Jam",
     subDescription: [],
  
     // Links
