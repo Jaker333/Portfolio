@@ -35,6 +35,7 @@ export const myProjects = [
       language: "C#",
       software: ["Unity", "PlasticSCM", "FMOD", "Fastlane", "Testflight", "App Store Connect", "Google Play Console"],
       duration: "3 months, Summer 2026",
+      teamSize: "8",
       },
 
       // Shown right under the About section, before the custom sections below
@@ -257,7 +258,7 @@ private void UpdateMusicState(Scene scene)
           {
               type: "slides", // embeds a Google Slides deck
               url: "https://docs.google.com/presentation/d/1GuyFUnTfL2LRFVD1jMucTOiCYOKO9BG-MynpWYGEc0E/edit?usp=sharing",
-              caption: "Game design pitch deck",
+              caption: "Level Design Do's and Don'ts",
           },
           ],
       },
@@ -375,6 +376,7 @@ private void UpdateMusicState(Scene scene)
       language: "C#",
       software: ["Unity", "Photon", "Aseprite", "FL Studio", "Audactiy", "DaVinci Resolve", ],
       duration: "20 months, Dec 2024 - Aug 2026",
+      teamSize: "1",
     },
 
     // Shown right under the About section, before the custom sections below
@@ -680,6 +682,7 @@ private void UpdateMusicState(Scene scene)
       language: "C#",
       software: ["Unity", "Itch.io", "Desmos", "VS Code"],
       duration: "2 days (GMTK 2026 Game Jam)",
+      teamSize: "6",
     },
  
     // Tags shown on card and in Technologies section

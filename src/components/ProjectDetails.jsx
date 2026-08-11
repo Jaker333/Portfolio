@@ -345,6 +345,17 @@ const ProjectDetails = ({
                       </span>
                     </>
                   )}
+
+                  {details.teamSize && (
+                    <>
+                      <span className="font-semibold text-cyan-400">
+                        Team Size
+                      </span>
+                      <span className="text-neutral-300">
+                        {details.teamSize}
+                      </span>
+                    </>
+                  )}
                 </div>
               )}
             </section>
