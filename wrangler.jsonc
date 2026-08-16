@@ -1,8 +1,11 @@
 {
-  "name": "portfolio",
+  "name": "jakederomaportfolio",
   "compatibility_date": "2026-08-16",
   "assets": {
     "directory": "./dist",
+    // Since react-router-dom handles routes like /projects/:slug on the
+    // client side, any path Cloudflare doesn't recognize as a real file
+    // should fall back to index.html so the app can take over routing.
     "not_found_handling": "single-page-application"
   }
 }
