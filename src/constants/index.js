@@ -688,9 +688,9 @@ private void UpdateMusicState(Scene scene)
     // Tags shown on card and in Technologies section
     tags: [
         { id: 1, name: "GMTK 2026", color: "bg-cyan-600/30 text-cyan-200 border-cyan-500/30" },
-        { id: 2, name: "27th out of 10,548 Most Popular", color: "bg-yellow-600/30 text-yellow-200 border-yellow-500/30" },
-        { id: 3, name: "Git", color: "bg-red-600/30 text-red-200 border-red-500/30" },
-        { id: 4, name: "3D",  color: "bg-green-600/30 text-green-200 border-green-500/30" },
+        { id: 2, name: "27 / 10,548 Most Popular", color: "bg-yellow-600/30 text-yellow-200 border-yellow-500/30" },
+        { id: 3, name: "3D",  color: "bg-green-600/30 text-green-200 border-green-500/30" },
+        { id: 4, name: "Git", color: "bg-red-600/30 text-red-200 border-red-500/30" },
         { id: 5, name: "C#", color: "bg-orange-600/30 text-orange-200 border-orange-500/30" },
         { id: 6, name: "Unity",  color: "bg-gray-600/30 text-gray-200 border-gray-500/30" },
     ],

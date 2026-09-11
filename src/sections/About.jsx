@@ -130,6 +130,23 @@ const About = () => {
                 <br />
                 <br />
 
+                Some of my favorite games for their design are{" "}
+                <span className="text-yellow-400">
+                  Black Ops 3 Zombies
+                </span>
+                ,{" "}
+                <span className="text-yellow-400">
+                  Sekiro: Shadows Die Twice
+                </span>
+                , and{" "}
+                <span className="text-yellow-400">
+                  The Last of Us
+                </span>
+                .
+
+                <br />
+                <br />
+
                 My mission is to create games that bring players together through{" "}
                 <span className="text-yellow-400">
                   fun, memorable game experiences
